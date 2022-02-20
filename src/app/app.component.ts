@@ -54,7 +54,7 @@ export class AppComponent implements OnInit {
         var titlee = this.location.prepareExternalUrl(this.location.path());
         titlee = titlee.slice( 1 );
         if(titlee === 'signup' || titlee === 'nucleoicons'){
-            return false;
+            return true;
         }
         else {
             return true;
