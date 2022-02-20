@@ -1,0 +1,152 @@
+<head>
+    <meta charset="UTF-8">
+</head>
+<div class="page-header" data-parallax="true" style="background-image: url('./assets/img/daniel-olahh.jpg');">
+    <div class="filter"></div>
+    <div class="container">
+        <div class="motto text-center">
+            <h1>Bon appetit</h1>
+            <h3>Un sitio web para alojar tus cartas</h3>
+            <br />
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                class="btn btn-outline-neutral btn-round btn-lg">¡Registra tu restaurante!</a>
+            <br />
+            <h3>ó</h3>
+            <br />
+            <button type="button" class="btn btn-outline-neutral btn-round btn-lg">¡Explora restaurantes!</button>
+        </div>
+    </div>
+</div>
+<div class="main">
+    <div class="section text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 mr-auto ml-auto">
+                    <h2 class="title">Somos una nueva alternativa <br>
+                        <p style="font-size:0.7em">(Y tal vez la mejor 🤭)</p> para publicar tus cartas en la web
+                    </h2>
+                    <h2><small>¡Con 0 socios creyendo en nuestro proyecto! <br> ¿Quieres participar tú también?</small>
+                    </h2>
+                    <br><br>
+                    <a href="#paper-kit" class="btn btn-danger btn-round btn-lg">¡Publica tu carta YA!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section section-dark text-center">
+        <div class="container">
+            <h2 class="title">O bien</h2>
+            <h2>Échale un ojo a nuestros socios 👀</h2>
+            <br/><br/>
+            <div class="row">
+                <div href="#" class="col-md-4">
+                    <div class="card card-profile card-plain">
+                        <div class="card-avatar">
+                            <a href="#avatar"><img src="./assets/img/favicon-512.png" alt="..."></a>
+                        </div>
+
+                        <div class="card-block">
+                            <a href="#paper-kit">
+                                <div class="author">
+                                    <br/>
+                                    <h3 class="card-title">McDonalds</h3>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <a href="#paper-kit">
+                        <div class="card card-profile card-plain"
+                            style="background-image: url('./assets/img/favicon-512.png'); background-position: center;">
+                            <div class="card-avatar">
+                                <a href="#avatar"><img src=".\assets\img\logo-frisby-1024x1024.jpg" alt="..."></a>
+                            </div>
+
+                            <div class="card-block">
+                                <div class="author">
+                                    <br/>
+                                    <h3 class="card-title" style="color: black; background-color:rgba(255,255,255,0.3);">Frisby</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card card-profile card-plain">
+                        <div class="card-avatar">
+                            <a href="#avatar"><img src="./assets/img/faces/erik-lucatero-2.jpg" alt="..."></a>
+                        </div>
+                        <div class="card-block">
+                            <a href="#paper-kit">
+                                <div class="author">
+                                    <h4 class="card-title">Robert Orben</h4>
+                                    <h6 class="card-category">Developer</h6>
+                                </div>
+                            </a>
+                            <p class="card-description text-center">
+                                The strength of the team is each individual member. The strength of each member is the
+                                team. If you can laugh together, you can work together, silence isn’t golden, it’s
+                                deadly.
+                            </p>
+                        </div>
+                        <div class="card-footer text-center">
+                            <a href="#pablo" class="btn btn-link btn-just-icon btn-neutral"><i
+                                    class="fa fa-twitter"></i></a>
+                            <a href="#pablo" class="btn btn-link btn-just-icon btn-neutral"><i
+                                    class="fa fa-google-plus"></i></a>
+                            <a href="#pablo" class="btn btn-link btn-just-icon btn-neutral"><i
+                                    class="fa fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section landing-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 mr-auto ml-auto">
+                    <h2 class="text-center">Keep in touch?</h2>
+                    <form class="contact-form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Name</label>
+                                <div class="input-group" [ngClass]="{'input-group-focus':focus===true}">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="nc-icon nc-single-02"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Name" (focus)="focus=true"
+                                        (blur)="focus=false">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label>Email</label>
+                                <div class="input-group" [ngClass]="{'input-group-focus':focus1===true}">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"> <i class="nc-icon nc-email-85"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Email" (focus)="focus1=true"
+                                        (blur)="focus1=false">
+                                </div>
+                            </div>
+                        </div>
+                        <label>Message</label>
+                        <textarea class="form-control" rows="4"
+                            placeholder="Tell us your thoughts and feelings..."></textarea>
+                        <div class="row">
+                            <div class="col-md-4 mr-auto ml-auto">
+                                <button class="btn btn-danger btn-lg btn-fill">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
