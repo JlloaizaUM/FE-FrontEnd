@@ -1,53 +1,57 @@
 <div class="wrapper">
-    <div class="page-header" style="background-image: url('./assets/img/restaurante.jpg');">
-        <div class="filter"></div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
-                      <div class="card card-register" >
-                        <h3 class="title">A LA CARTA</h3>
-                          <h3 class="title">BIENVENIDOS</h3>
-                          <div class="social-line text-center">
-                              
-                              <a href="#pablo" class="btn btn-neutral btn-google btn-just-icon">
-                                  <i class="fa fa-google-plus"></i>
-                              </a>
-                              
-                          </div >
-                          <form class="register-form">
-                              <label>Correo</label>
-                              <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text">
-                                      <i class="nc-icon nc-email-85"></i>
-                                  </span>
-                                </div>
+  <div class="page-header" style="background-image: url('./assets/img/restaurante.jpg');">
+    <div class="filter"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
+          <div class="card card-register" style="background-color: white; margin-top: 70px">
+            <h3 class="title" style="margin-bottom: 30px;">Iniciar sesión</h3>
+            <div class="social-line text-center">
 
-                                  <input type="text" class="form-control" placeholder="Email" (focus)="focus=true" (blur)="focus=false" >
-                              </div>
+              <a href="#pablo" class="btn btn-neutral btn-google btn-just-icon">
+                <i class="fa fa-google-plus"></i>
+              </a>
 
-                              <label>Contraseña</label>
-                              <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text">
-                                      <i class="nc-icon nc-key-25"></i>
-                                  </span>
-                                </div>
-                                  <input type="text" class="form-control" placeholder="Password" (focus)="focus1=true" (blur)="focus1=false" >
-                              </div>
-                              <button class="btn btn-danger btn-block btn-round">Ingresar</button>
-                          </form>
-
-                          <div class="forgot">
-                              <a href="#" class="btn btn-link btn-danger">¿Olvidó su contraseña?</a>
-                          </div>
-                          <div class="register">
-                            <a href="#" class="btn btn-link btn-danger" >Registrar usuario</a>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-               
             </div>
+            <form class="register-form">
+              <label>Correo</label>
+              <div class="input-group" [ngClass]="{'input-group-focus':focus===true}">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="nc-icon nc-email-85"></i>
+                  </span>
+                </div>
+
+                <input type="text" class="form-control" placeholder="Email" (focus)="focus=true" (blur)="focus=false"
+                style="border-color: #DDDDDD;">
+              </div>
+
+              <label>Contraseña</label>
+              <div class="input-group" [ngClass]="{'input-group-focus':focus1===true}">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="nc-icon nc-key-25"></i>
+                  </span>
+                </div>
+                <input type="password" class="form-control"  placeholder="Password" (focus)="focus1=true"
+                  (blur)="focus1=false" style="border-color: #DDDDDD;">
+              </div>
+              <button class="btn btn-outline-danger btn-danger btn-block btn-round">Ingresar</button>
+            </form>
+            <div class="text-center">
+              <h4 class="description" style="margin-top:20px">ó</h4>
+            </div>
+            <div class="register">
+              <button class="btn btn-block btn-danger btn-round" style="margin-top:20px">Regístrate</button>
+            </div>
+            <div class="forgot">
+              <a href="#" class="btn btn-link btn-danger">¿Olvidó su contraseña?</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
     </div>
+  </div>
 </div>
