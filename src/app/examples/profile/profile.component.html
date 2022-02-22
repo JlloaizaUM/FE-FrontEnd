@@ -1,3 +1,21 @@
+<style>
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+        width: 100%;
+        background-color: #F9FAFA;
+
+    }
+
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .container {
+        padding: 2px 16px;
+    }
+</style>
+
 <div class="wrapper">
     <div class="page-header page-header-xs" data-parallax="true"
         style="background-image: url('./assets/img/chorizo.jpeg');">
@@ -10,35 +28,117 @@
                     <img src="./assets/img/torigallo.jpeg" alt="Circle Image"
                         class="img-circle img-no-padding img-responsive">
                 </div>
-                <div class="name">
+                <div class="name" style="font-size:2.3em; background: #D5DBDB;font-weight: bold; padding: 15px; border: 2px solid #AEB6BF; border-radius: 6px; width: 50%;
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); margin-left: 25%;">
                     <h4 class="title">Torigallo<br /></h4>
                 </div>
             </div>
-            <br/>
+            <br />
 
-            <div class="nav-tabs-navigation">
-                <div class="nav-tabs-wrapper">
-                    <ngb-tabset [justify]="'center'">
-                        <ngb-tab title="Home">
-                            <ng-template ngbTabContent>
-                                <p>Larger, yet dramatically thinner. More powerful, but remarkably power efficient. With
-                                    a smooth metal surface that seamlessly meets the new Retina HD display.</p>
-                            </ng-template>
-                        </ngb-tab>
-                        <ngb-tab title="Profile">
-                            <ng-template ngbTabContent>
-                                <p>Here is your profile.</p>
-                            </ng-template>
-                        </ngb-tab>
-                        <ngb-tab title="Messages">
-                            <ng-template ngbTabContent>
-                                <p>Here are your messages.</p>
-                            </ng-template>
-                        </ngb-tab>
-                    </ngb-tabset>
+            <div class="row">
+                <div class="col-md-2">
+                    <a href="" ><img class="img" style="height: 600px; width: 160px; box-sizing: content-box;" src="./assets/img/publicidad.jpg" ></a>
+
+                </div>
+                <div class="col-md-8">
+                    <div class="nav-tabs-navigation">
+                        <div class="nav-tabs-wrapper">
+                            <ngb-tabset [justify]="'center'">
+                                <ngb-tab title="Comidas">
+                                    <ng-template ngbTabContent>
+
+                                        <div class="card card-plain">
+                                            <div class="container">
+                                                <h4><strong>platos princiales:</strong></h4>
+                                                <hr>
+                                                <h5><b>Chorizo llanero</b></h5>
+                                                <p>Chorizo santarrosano, papa a la francesa, tomate, limón, arepa y salsas
+                                                </p>
+                                                <hr>
+                                                <h5><b>Carne asada</b></h5>
+                                                <p>Lomo de res asado a la  plancha, arepa, tomate y limon</p>
+                                                <hr>
+                                                <h5><b>Pollo asado</b></h5>
+                                                <p>Pechuga de pollo asado a la plancha, arepa, tomate y limon</p>
+                                                <hr>
+                                                <h4><b>platos rápidos:</b></h4>
+                                                <hr>
+                                                <h5><b>Chuzo desgranado mixto</b></h5>
+                                                <p>Carne de res, cerdo, pollo, lechuga, tomate, ripio, salsas, tocineta y
+                                                    papas a la francesa</p>
+                                                <hr>
+                                                <h5><b>Arepa burguer especial</b></h5>
+                                                <p>Carne de res ahumada, mega porción de queso, arepa, ensalada doble
+                                                    tocineta y ripio</p>
+                                                <hr>
+                                            </div>
+                                        </div>
+    
+                                    </ng-template>
+                                </ngb-tab>
+                                <ngb-tab title="Bebidas">
+                                    <ng-template ngbTabContent>
+                                        <div class="card">
+                                            <div class="container">
+                                                <h4><strong>Jugos naturales:</strong></h4>
+                                                <hr>
+                                                <p>Jugo de maracuya</p>
+                                                <hr>
+                                                <p>Jugo de mora</p>
+                                                <hr>
+                                                <p>Jugo de naranja</p>
+                                                <hr>
+                                                <p>Jugo de fresa</p>
+                                                <hr>
+                                                <h4><strong>Malteadas:</strong></h4>
+                                                <hr>
+                                                <p>Malteada de chocolate</p>
+                                                <hr>
+                                                <p>Malteada de vainilla</p>
+                                                <hr>
+                                                <p>Malteada de frutos del bosque</p>
+                                                <hr>
+                                            </div>
+                                        </div>
+                                    </ng-template>
+                                </ngb-tab>
+                                <ngb-tab title="Postres">
+                                    <ng-template ngbTabContent>
+                                        <div class="card">
+                                            <div class="container">
+                                                <h4><strong>Los más deseados:</strong></h4>
+                                                <hr>
+                                                <h5><b>cheescacke de limón</b></h5>
+                                                <p>A base de limón, trozos de galletas y crema chantilly</p>
+                                                <hr>
+                                                <h5><b>Volcán de chocolate</b></h5>
+                                                <p>Chocolate horneado, relleno de chocolate caliente, acompañado de helado a
+                                                    sabor de preferencia</p>
+                                                <hr>
+                                                <h4><strong>Como acompañante:</strong></h4>
+                                                <hr>
+                                                <h5><b>Torre de helado</b></h5>
+                                                <p>Tres bolas de helado a elección con salsa de chocolate y chantilly</p>
+                                                <hr>
+                                                <h5><b>Oblea</b></h5>
+                                                <p>Con fresas, crema de leche y arequipe</p>
+                                                <hr>
+                                            </div>
+                                        </div>
+    
+                                    </ng-template>
+                                </ngb-tab>
+                            </ngb-tabset>
+                        </div>
+                        <p>Contáctanos al 0180007893 o vísitanos en nuestra sede principal en Manizales en la calle 3
+                            #12-32.</p>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <a href="https://www.ktronix.com/celular-motorola-g31-128gb-gris/p/840023222726?ag_kt=fTFwa1FXMDIlPCgtJiY-ITMqMWdQXDEoKiAzISonIDguNSQ_JnpqWlYqLSchICEhPiI8NCsmNTpne21lJyM6ITAlNX9PVyYjKyErMSc8KiEhPit0aW9wb0ZsYDAyJjMtLSYnMSQ0Mz8mcGgxKComPCk2IicnJjMoIjc7NDFxZ2JrbWpqc2t1dzUxPjtbXF4qOyd9fWV7anInPDF0ejo_MGplam5rdmArLSdFe3Z2dXYwJDVpeHZ0Z2hwYCQpJnxrMT4qeHY7IjFfaHRsaGdranAxPipzanR5enwrLSdtZ3Z2dnpqJnRqdDo_MGhzcX9jYTsiMXtldmJ8enJ8Z3J3JD8meHx1fXp6ZG06KTBgdmdZJjYpRyYnPTUpO2tgfistJ392dzs0MWd6e1prfXV3e3J3JCkmcWxnYnstWTZEPGV-YCttZ3Z2dnpqJnRqdDo_MHxlaVlnZWt_dmYqLSdxbGdiei1ZKU8rbm9kPGNjd3Z2emondGprTyt6fX9nZHZ3NHV8ZmZlampyKX4rIj85JT1-ej51e352Wjx0RTcrJjgnNyoqISA-JTMkbg.._575e1cec" ><img class="img" style="height: 600px; width: 160px; box-sizing: content-box;" src="./assets/img/publicidad2.jpg" ></a>
+
                 </div>
             </div>
-
+                
         </div>
     </div>
-</div>
