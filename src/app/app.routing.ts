@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ComponentsComponent } from './components/components.component';
 import { ProfileComponent } from './examples/profile/profile.component';
 import { SignupComponent } from './examples/signup/signup.component';
-import { LandingComponent } from './examples/landing/landing.component';
+import { LandingComponent } from './client-view/landing/landing.component';
 import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
 import { SigninComponent } from './auth-view/signin/signin.component';
 import { ForgotPasswordComponent } from './auth-view/forgot-password/forgot-password.component';
@@ -14,7 +14,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { NotificationComponent } from './components/notification/notification.component';
 
 const routes: Routes =[
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: '', redirectTo: 'landing', pathMatch: 'full' },
     { path: 'home',             component: ComponentsComponent },
     { path: 'user-profile',     component: ProfileComponent },
     { path: 'signin',           component: SigninComponent },
