@@ -7,7 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingComponent implements OnInit {
 
-  constructor() { }
+  partner_number: number;
+  img_url1: string;
+  partner1: string;
+
+  constructor() {
+    this.partner_number = 0;
+    this.img_url1 = "./assets/img/favicon-512.png";
+    this.partner1 = "McDonalds"
+  }
 
   ngOnInit(): void {
   }
