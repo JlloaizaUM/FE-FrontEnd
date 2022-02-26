@@ -5,17 +5,23 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ComponentsComponent } from './components/components.component';
 import { ProfileComponent } from './examples/profile/profile.component';
-import { SignupComponent } from './examples/signup/signup.component';
+import { SigninComponent } from './auth-view/signin/signin.component';
 import { LandingComponent } from './client-view/landing/landing.component';
 import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
+import { RestaurantPageComponent } from './client-view/restaurant-page/restaurant-page.component';
+import { PageNotFoundComponent } from './client-view/page-not-found/page-not-found.component';
+
 
 const routes: Routes =[
     { path: '', redirectTo: 'landing', pathMatch: 'full' },
-    { path: 'home',             component: ComponentsComponent },
-    { path: 'user-profile',     component: ProfileComponent },
-    { path: 'signup',           component: SignupComponent },
-    { path: 'landing',          component: LandingComponent },
-    { path: 'nucleoicons',      component: NucleoiconsComponent }
+    { path: 'home',                     component: ComponentsComponent },
+    { path: 'user-profile',             component: ProfileComponent },
+    { path: 'signin',                   component: SigninComponent },
+    { path: 'landing',                  component: LandingComponent },
+    { path: 'nucleoicons',              component: NucleoiconsComponent },
+    { path: 'restaurant/:restaurantId', component: RestaurantPageComponent},
+    { path: 'restaurant',               component: RestaurantPageComponent},
+    { path: '**',                       component: PageNotFoundComponent}
 ];
 
 @NgModule({

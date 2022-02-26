@@ -8,15 +8,20 @@ import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { LandingComponent } from './client-view/landing/landing.component';
 
 import { ComponentsModule } from './components/components.module';
 import { ExamplesModule } from './examples/examples.module';
+import { RestaurantPageComponent } from './client-view/restaurant-page/restaurant-page.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    LandingComponent,
+    RestaurantPageComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +31,7 @@ import { ExamplesModule } from './examples/examples.module';
     ComponentsModule,
     ExamplesModule,
     AppRoutingModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
