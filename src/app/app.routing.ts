@@ -10,8 +10,7 @@ import { LandingComponent } from './client-view/landing/landing.component';
 import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
 import { SigninComponent } from './auth-view/signin/signin.component';
 import { ForgotPasswordComponent } from './auth-view/forgot-password/forgot-password.component';
-import { NavigationComponent } from './components/navigation/navigation.component';
-import { NotificationComponent } from './components/notification/notification.component';
+
 
 const routes: Routes =[
     { path: '', redirectTo: 'landing', pathMatch: 'full' },
