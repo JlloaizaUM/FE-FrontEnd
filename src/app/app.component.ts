@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
         this._router = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
             if (window.outerWidth > 991) {
                 window.document.children[0].scrollTop = 0;
-            }else{
+            } else {
                 window.document.activeElement.scrollTop = 0;
             }
             this.navbar.sidebarClose();
@@ -55,6 +55,19 @@ export class AppComponent implements OnInit {
         titlee = titlee.slice(1);
         var pagina = titlee.split("/")[1];
         let routes = ['signin', 'landing', 'restaurant']
+        if (routes.includes(pagina)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    removeNav() {
+        var titlee = this.location.prepareExternalUrl(this.location.path());
+        titlee = titlee.slice(1);
+        var pagina = titlee.split("/")[1];
+        let routes = ['landing', 'restaurant']
         if (routes.includes(pagina)) {
             return true;
         }
