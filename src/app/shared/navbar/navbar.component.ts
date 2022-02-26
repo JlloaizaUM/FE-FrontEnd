@@ -15,9 +15,13 @@ export class NavbarComponent implements OnInit {
     }
 
     ngOnInit() {
-        const navbar: HTMLElement = this.element.nativeElement;
-        this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
+        if(this.show()){
+            const navbar: HTMLElement = this.element.nativeElement;
+            this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
+        }
+        
     }
+
     sidebarOpen() {
         const toggleButton = this.toggleButton;
         const html = document.getElementsByTagName('html')[0];
@@ -71,4 +75,21 @@ export class NavbarComponent implements OnInit {
             return false;
         }
     }
+
+    show() {
+        var titlee = this.location.prepareExternalUrl(this.location.path());
+        if(titlee.charAt(0) === '#'){
+            titlee = titlee.slice( 1 );
+        }
+        var pagina = titlee.split("/")[1];
+        let routes = ['landing', 'restaurant'];
+        if (routes.includes(pagina)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+        
+    }
+
 }

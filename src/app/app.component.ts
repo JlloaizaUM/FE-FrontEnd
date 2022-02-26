@@ -57,7 +57,6 @@ export class AppComponent implements OnInit {
         var titlee = this.location.prepareExternalUrl(this.location.path());
         titlee = titlee.slice(1);
         let routes = ['home', 'signin', 'landing', 'restaurant']
-        console.log(titlee)
         if (routes.includes(titlee)) {
             return true;
         }
