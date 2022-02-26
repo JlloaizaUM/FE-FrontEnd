@@ -9,7 +9,9 @@ import { SignupComponent } from './examples/signup/signup.component';
 import { LandingComponent } from './examples/landing/landing.component';
 import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
 import { SigninComponent } from './auth-view/signin/signin.component';
-
+import { ForgotPasswordComponent } from './auth-view/forgot-password/forgot-password.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { NotificationComponent } from './components/notification/notification.component';
 
 const routes: Routes =[
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -18,7 +20,9 @@ const routes: Routes =[
     { path: 'signin',           component: SigninComponent },
     { path: 'signup',           component: SignupComponent },
     { path: 'landing',          component: LandingComponent },
-    { path: 'nucleoicons',      component: NucleoiconsComponent }
+    { path: 'nucleoicons',      component: NucleoiconsComponent },
+    { path: 'forgot-password',  component: ForgotPasswordComponent},
+  
 ];
 
 @NgModule({
