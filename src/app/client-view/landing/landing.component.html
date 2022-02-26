@@ -1,7 +1,4 @@
-<head>
-    <meta charset="UTF-8">
-</head>
-<div class="page-header" data-parallax="true" style="background-image: url('./assets/img/daniel-olahh.jpg');">
+<div class="page-header" data-parallax="true" style="background-image: url('./assets/img/kitchen-cloth-on-wood-table.jpg');">
     <div class="filter"></div>
     <div class="container">
         <div class="motto text-center">
@@ -25,7 +22,7 @@
                     <h2 class="title">Somos una nueva alternativa <br>
                         <p style="font-size:0.7em">(Y tal vez la mejor 🤭)</p> para publicar tus cartas en la web
                     </h2>
-                    <h2><small>¡Con 0 socios creyendo en nuestro proyecto! <br> ¿Quieres participar tú también?</small>
+                    <h2><small>¡Con {{parameters[0]}} socios creyendo en nuestro proyecto! <br> ¿Quieres participar tú también?</small>
                     </h2>
                     <br><br>
                     <a href="#/signin" class="btn btn-danger btn-round btn-lg">¡Publica tu carta YA!</a>
@@ -46,13 +43,13 @@
                         <div class="card card-profile card-plain card-restaurante"
                             style="background-image: url('./assets/img/mcdonaldsfotoprincipal.jpg');" >
                             <div class="card-avatar">
-                                <a href="#avatar" class="img" ><img  src="./assets/img/favicon-512.png" alt="..."></a>
+                                <a href="#avatar" class="img" ><img  src={{parameters[1]}} alt="..."></a>
                             </div>
                             <div class="card-block">
                                 <div class="author">
                                     <br/>
                                     <h3 class="card-title nombre"
-                                        style="color: black; background-color:rgba(255,255,255,0.7); font-style: oblique;">McDonalds</h3>
+                                        style="color: black; background-color:rgba(255,255,255,0.7); font-style: oblique;">{{parameters[2]}}</h3>
                                 </div>
 
                             </div>
