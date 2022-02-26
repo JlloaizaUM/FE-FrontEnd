@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
@@ -7,17 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingComponent implements OnInit {
 
-  partner_number: number;
-  img_url1: string;
-  partner1: string;
+  parameters;
 
   constructor() {
-    this.partner_number = 0;
-    this.img_url1 = "./assets/img/favicon-512.png";
-    this.partner1 = "McDonalds"
+    this.getParameters();
   }
 
   ngOnInit(): void {
   }
 
+  getParameters(){
+    this.parameters = [15, "./assets/img/favicon-512.png", "McDonalds"];
+  }
 }
