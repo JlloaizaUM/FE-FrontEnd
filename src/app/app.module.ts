@@ -14,7 +14,6 @@ import { ComponentsModule } from './components/components.module';
 import { ExamplesModule } from './examples/examples.module';
 import { RestaurantPageComponent } from './client-view/restaurant-page/restaurant-page.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,8 +29,7 @@ import { RestaurantPageComponent } from './client-view/restaurant-page/restauran
     RouterModule,
     ComponentsModule,
     ExamplesModule,
-    AppRoutingModule,
-    
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
