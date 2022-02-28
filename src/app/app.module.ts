@@ -14,13 +14,14 @@ import { NotificationComponent } from './components/notification/notification.co
 import { ComponentsModule } from './components/components.module';
 import { ExamplesModule } from './examples/examples.module';
 import { NavigationComponent } from './components/navigation/navigation.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FooterComponent,
+
     
   ],
   imports: [
@@ -30,7 +31,8 @@ import { NavigationComponent } from './components/navigation/navigation.componen
     RouterModule,
     ComponentsModule,
     ExamplesModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
