@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { FormControl } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
+
 
 @Component({
   selector: 'app-signin',
@@ -10,8 +10,8 @@ import { FormControl } from '@angular/forms';
 export class SigninComponent implements OnInit {
 
   registerForm = new FormGroup({
-     email: new FormControl(''),
-     password: new FormControl(''),
+    email: new FormControl(''),
+    password: new FormControl(''),
   });
 
   constructor() { }
@@ -19,7 +19,7 @@ export class SigninComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onRegister(){
+  onRegister() {
     console.log('Form->', this.registerForm.value);
   }
 

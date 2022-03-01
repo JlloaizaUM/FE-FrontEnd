@@ -11,19 +11,22 @@ import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.compo
 import { ForgotPasswordComponent } from './auth-view/forgot-password/forgot-password.component';
 import { RestaurantPageComponent } from './client-view/restaurant-page/restaurant-page.component';
 import { PageNotFoundComponent } from './client-view/page-not-found/page-not-found.component';
+import { RegisterClientComponent } from './auth-view/register-client/register-client.component'; 
 
 
 const routes: Routes =[
     { path: '', redirectTo: 'landing', pathMatch: 'full' },
-    { path: 'home',             component: ComponentsComponent },
-    { path: 'user-profile',     component: ProfileComponent },
-    { path: 'signin',           component: SigninComponent },
-    { path: 'forgot-password',  component: ForgotPasswordComponent},
+    { path: 'home',                     component: ComponentsComponent },
+    { path: 'user-profile',             component: ProfileComponent },
+    { path: 'signin',                   component: SigninComponent },
+    { path: 'forgot-password',          component: ForgotPasswordComponent},
     { path: 'landing',                  component: LandingComponent },
     { path: 'nucleoicons',              component: NucleoiconsComponent },
     { path: 'restaurant/:restaurantId', component: RestaurantPageComponent},
     { path: 'restaurant',               component: RestaurantPageComponent},
-    { path: '**',                       component: PageNotFoundComponent}
+    { path: 'register-client',           component: RegisterClientComponent},
+    { path: '**',                       component: PageNotFoundComponent},
+   
 ];
 
 @NgModule({

@@ -11,12 +11,14 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { LandingComponent } from './client-view/landing/landing.component';
 import { ForgotPasswordComponent } from './auth-view/forgot-password/forgot-password.component';
 import { NotificationComponent } from './components/notification/notification.component';
+import { RegisterClientComponent } from './auth-view/register-client/register-client.component';
 
 import { ComponentsModule } from './components/components.module';
 import { ExamplesModule } from './examples/examples.module';
 import { RestaurantPageComponent } from './client-view/restaurant-page/restaurant-page.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ClientViewModule } from './client-view/client-view.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     NavbarComponent,
     FooterComponent,
     LandingComponent,
-    RestaurantPageComponent
+    RestaurantPageComponent,
+    ForgotPasswordComponent,
+    RegisterClientComponent
   ],
   imports: [
     BrowserModule,
