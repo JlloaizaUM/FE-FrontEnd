@@ -8,19 +8,18 @@ import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
-import { LandingComponent } from './client-view/landing/landing.component';
 
 import { ComponentsModule } from './components/components.module';
 import { ExamplesModule } from './examples/examples.module';
-import { RestaurantPageComponent } from './client-view/restaurant-page/restaurant-page.component';
+import { ClientViewModule } from './client-view/client-view.module';
+import { HttpClientModule } from '@angular/common/http';
+import { FeaturedRestaurantApiService } from './client-view/services/api.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    LandingComponent,
-    RestaurantPageComponent
   ],
   imports: [
     BrowserModule,
@@ -29,9 +28,10 @@ import { RestaurantPageComponent } from './client-view/restaurant-page/restauran
     RouterModule,
     ComponentsModule,
     ExamplesModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ClientViewModule,
+    HttpClientModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

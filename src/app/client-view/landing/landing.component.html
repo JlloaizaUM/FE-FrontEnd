@@ -34,16 +34,16 @@
     <div class="section section-dark text-center">
         <div class="container">
             <h2 class="title">O bien</h2>
-            <h2>Échale un ojo a nuestros socios 👀</h2>
+            <h2>Échale un ojo a algunos de nuestros socios 👀</h2>
             <br /><br />
             <div class="row">
 
-                <div class="col-md-4 " *ngFor="let item of cards">
-                    <a href={{item.url}}>
+                <div class="col-md-4 " *ngFor="let item of restaurants">
+                    <a href='#/restaurant/{{item.user_url}}'> 
                         <div class="card card-profile card-plain card-restaurante"
-                            style="background-image: url({{item.backg}});" >
+                            style="background-image: url({{item.img_banner}});" >
                             <div class="card-avatar">
-                                <img  src={{item.img}} alt="{{item.name}} logo">
+                                <img  src={{item.img_avatar}} alt="{{item.name}} logo">
                             </div>
                             <div class="card-block">
                                 <div class="author">

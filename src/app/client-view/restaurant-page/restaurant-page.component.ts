@@ -1,32 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+import { RestaurantPage } from '../model/restaurant-page';
+import { PageApiService } from '../services/get/page-api.service';
+
 @Component({
   selector: 'app-restaurant-page',
   templateUrl: './restaurant-page.component.html',
   styleUrls: ['./restaurant-page.component.css']
 })
-
 export class RestaurantPageComponent implements OnInit {
 
-  cards: any;
-  restaurant: any;
+  page: any;
 
-  constructor(private route: ActivatedRoute) {
-    /*
-    {img:"./assets/img/favicon-512.png",name:"McDonalds",url:"#restaurant/0",backg:"./assets/img/mcdonaldsfotoprincipal.jpg"}
-    
-    */
-    this.cards = [{img:"./assets/img/favicon-512.png",          name:"McDonalds",url:"#restaurant/0",backg:"./assets/img/mcdonaldsfotoprincipal.jpg"}, 
-                  {img:"./assets/img/logo-frisby-1024x1024.jpg",name:"Frisby",   url:"#restaurant/1",backg:"./assets/img/pollo_frisby.jpg"},
-                  {img:"./assets/img/torigallo.jpeg",           name:"Torigallo",url:"#restaurant/2",backg:"./assets/img/chorizo.jpeg"}];
-   }
+  constructor(private route: ActivatedRoute, private apiservice: PageApiService) { }
 
-  ngOnInit(){
+  ngOnInit() {
     const routeParams = this.route.snapshot.paramMap;
-    let id = routeParams.get('restaurantId');
-
-    this.restaurant = this.cards[id];
+    let path = routeParams.get('restaurantPath');
+    this.apiservice.getRestaurantData(path).subscribe((restaurant) => {
+      this.page = restaurant;
+    });
+    console.log(this.page);
   }
 
 }

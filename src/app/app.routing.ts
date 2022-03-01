@@ -19,8 +19,7 @@ const routes: Routes =[
     { path: 'signin',                   component: SigninComponent },
     { path: 'landing',                  component: LandingComponent },
     { path: 'nucleoicons',              component: NucleoiconsComponent },
-    { path: 'restaurant/:restaurantId', component: RestaurantPageComponent},
-    { path: 'restaurant',               component: RestaurantPageComponent},
+    { path: 'restaurant/:restaurantPath', component: RestaurantPageComponent},
     { path: '**',                       component: PageNotFoundComponent}
 ];
 

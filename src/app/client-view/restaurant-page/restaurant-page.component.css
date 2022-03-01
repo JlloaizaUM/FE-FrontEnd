@@ -1,0 +1,10 @@
+.card-restaurante{
+    background-position: center;
+    height: 20em; 
+    border-radius: 0.5em;
+    transition: 0.3s;
+}
+
+.card-restaurante:hover{
+    font-size: 1.05em;
+}

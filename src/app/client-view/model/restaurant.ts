@@ -1,0 +1,6 @@
+export interface Restaurant {
+    name: string;
+    user_url: string;
+    img_avatar: string;
+    img_banner: string;
+}

@@ -6,17 +6,21 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LandingComponent } from './landing/landing.component';
 import { RestaurantPageComponent } from './restaurant-page/restaurant-page.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FeaturedRestaurantApiService } from './services/api.service';
+
 
 
 @NgModule({
   imports: [
     CommonModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   declarations: [
     LandingComponent,
     RestaurantPageComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
   ]
 })
 export class ClientViewModule { }
