@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
-
+  test : Date = new Date();
+  focus;
+  focus1;
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }
