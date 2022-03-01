@@ -17,28 +17,25 @@ export class AppComponent implements OnInit {
 
     constructor( private renderer : Renderer2, private router: Router, @Inject(DOCUMENT,) private document: any, private element : ElementRef, public location: Location) {}
     ngOnInit() {
-        if (this.removeNav()) {
-            var navbar : HTMLElement = this.element.nativeElement.children[0].children[0];
-            this._router = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
-                if (window.outerWidth > 991) {
-                    window.document.children[0].scrollTop = 0;
-                }else{
-                    window.document.activeElement.scrollTop = 0;
-                }
-                this.navbar.sidebarClose();
-            });
-            this.renderer.listen('window', 'scroll', (event) => {
-                const number = window.scrollY;
-                if (number > 150 || window.pageYOffset > 150) {
-                    // add logic
-                    navbar.classList.remove('navbar-transparent');
-                } else {
-                    // remove logic
-                    navbar.classList.add('navbar-transparent');
-                }
-            });
-        }
-        
+        var navbar : HTMLElement = this.element.nativeElement.children[0].children[0];
+        this._router = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
+            if (window.outerWidth > 991) {
+                window.document.children[0].scrollTop = 0;
+            } else {
+                window.document.activeElement.scrollTop = 0;
+            }
+            this.navbar.sidebarClose();
+        });
+        this.renderer.listen('window', 'scroll', (event) => {
+            const number = window.scrollY;
+            if (number > 150 || window.pageYOffset > 150) {
+                // add logic
+                navbar.classList.remove('navbar-transparent');
+            } else {
+                // remove logic
+                navbar.classList.add('navbar-transparent');
+            }
+        });
         var ua = window.navigator.userAgent;
         var trident = ua.indexOf('Trident/');
         if (trident > 0) {
@@ -54,18 +51,27 @@ export class AppComponent implements OnInit {
     }
     removeFooter() {
         var titlee = this.location.prepareExternalUrl(this.location.path());
-        titlee = titlee.slice( 1 );
-        if(titlee === 'signup' || titlee === 'nucleoicons'){
+        titlee = titlee.slice(1);
+        var pagina = titlee.split("/")[1];
+        let routes = ['signin', 'landing', 'restaurant']
+        if (routes.includes(pagina)) {
             return true;
         }
-        return "True";
+        else {
+            return false;
+        }
     }
+
     removeNav() {
         var titlee = this.location.prepareExternalUrl(this.location.path());
-        titlee = titlee.slice( 1 );
-        if(titlee === 'signin'){
-            return "False";
+        titlee = titlee.slice(1);
+        var pagina = titlee.split("/")[1];
+        let routes = ['landing', 'restaurant']
+        if (routes.includes(pagina)) {
+            return true;
         }
-        return "True";
+        else {
+            return false;
+        }
     }
 }

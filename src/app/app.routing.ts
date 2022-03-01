@@ -9,17 +9,19 @@ import { SigninComponent } from './auth-view/signin/signin.component';
 import { LandingComponent } from './client-view/landing/landing.component';
 import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
 import { RestaurantPageComponent } from './client-view/restaurant-page/restaurant-page.component';
+import { PageNotFoundComponent } from './client-view/page-not-found/page-not-found.component';
+
 
 
 const routes: Routes =[
     { path: '', redirectTo: 'landing', pathMatch: 'full' },
-    { path: 'home',             component: ComponentsComponent },
-    { path: 'restaurant',     component: ProfileComponent },
-    { path: 'signin',           component: SigninComponent },
-    //{ path: 'restaurant',       component: RestaurantPageComponent },
-    { path: 'user-profile',     component: ProfileComponent },
-    { path: 'landing',          component: LandingComponent },
-    { path: 'nucleoicons',      component: NucleoiconsComponent }
+    { path: 'home',                     component: ComponentsComponent },
+    { path: 'user-profile',             component: ProfileComponent },
+    { path: 'signin',                   component: SigninComponent },
+    { path: 'landing',                  component: LandingComponent },
+    { path: 'nucleoicons',              component: NucleoiconsComponent },
+    { path: 'restaurant/:restaurantPath', component: RestaurantPageComponent},
+    { path: '**',                       component: PageNotFoundComponent}
 ];
 
 @NgModule({

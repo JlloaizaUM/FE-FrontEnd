@@ -11,12 +11,15 @@ import { FooterComponent } from './shared/footer/footer.component';
 
 import { ComponentsModule } from './components/components.module';
 import { ExamplesModule } from './examples/examples.module';
+import { ClientViewModule } from './client-view/client-view.module';
+import { HttpClientModule } from '@angular/common/http';
+import { FeaturedRestaurantApiService } from './client-view/services/api.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,9 +28,10 @@ import { ExamplesModule } from './examples/examples.module';
     RouterModule,
     ComponentsModule,
     ExamplesModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ClientViewModule,
+    HttpClientModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

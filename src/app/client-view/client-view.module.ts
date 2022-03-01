@@ -5,16 +5,22 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 //import { ClientViewRoutingModule } from './client-view-routing.module';
 import { LandingComponent } from './landing/landing.component';
 import { RestaurantPageComponent } from './restaurant-page/restaurant-page.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FeaturedRestaurantApiService } from './services/api.service';
+
 
 
 @NgModule({
   imports: [
     CommonModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   declarations: [
     LandingComponent,
-    RestaurantPageComponent
+    RestaurantPageComponent,
+    PageNotFoundComponent,
   ]
 })
 export class ClientViewModule { }
