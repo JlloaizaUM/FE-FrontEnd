@@ -12,7 +12,9 @@ import { Restaurant } from "../model/Restaurant";
 export class LandingComponent implements OnInit {
 
   restaurants: Restaurant[];
-
+  part_num: number;
+  focus;
+  focus1;
   constructor( private apiservice: FeaturedRestaurantApiService ) { }
 
   ngOnInit(){

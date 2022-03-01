@@ -7,7 +7,6 @@ import { LandingComponent } from './landing/landing.component';
 import { RestaurantPageComponent } from './restaurant-page/restaurant-page.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FeaturedRestaurantApiService } from './services/api.service';
 
 
 
