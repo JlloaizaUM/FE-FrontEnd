@@ -10,27 +10,27 @@ import { LandingComponent } from './client-view/landing/landing.component';
 import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
 import { RestaurantPageComponent } from './client-view/restaurant-page/restaurant-page.component';
 import { PageNotFoundComponent } from './client-view/page-not-found/page-not-found.component';
+import { RestEditComponent } from './rest-view/rest-edit/rest-edit.component';
 
 
 
 const routes: Routes =[
     { path: '', redirectTo: 'landing', pathMatch: 'full' },
-    { path: 'home',                     component: ComponentsComponent },
-    { path: 'user-profile',             component: ProfileComponent },
-    { path: 'signin',                   component: SigninComponent },
-    { path: 'landing',                  component: LandingComponent },
-    { path: 'nucleoicons',              component: NucleoiconsComponent },
-    { path: 'restaurant/:restaurantPath', component: RestaurantPageComponent},
-    { path: '**',                       component: PageNotFoundComponent}
+    { path: 'home',                            component: ComponentsComponent },
+    { path: 'user-profile',                    component: ProfileComponent },
+    { path: 'signin',                          component: SigninComponent },
+    { path: 'landing',                         component: LandingComponent },
+    { path: 'nucleoicons',                     component: NucleoiconsComponent },
+    { path: 'restaurant/:restaurantPath',      component: RestaurantPageComponent},
+    { path: 'restaurant/:restaurantPath/edit', component: RestEditComponent},
+    { path: '**',                              component: PageNotFoundComponent}
 ];
 
 @NgModule({
   imports: [
     CommonModule,
     BrowserModule,
-    RouterModule.forRoot(routes,{
-      useHash: true
-    })
+    RouterModule.forRoot(routes)
   ],
   exports: [
   ],

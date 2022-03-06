@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-
-import { FeaturedRestaurantApiService } from "../services/get/featured-api.service";
-import { Restaurant } from "../model/Restaurant";
-
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
@@ -11,21 +7,17 @@ import { Restaurant } from "../model/Restaurant";
 })
 export class LandingComponent implements OnInit {
 
-  restaurants: Restaurant[];
   part_num: number;
-  focus;
-  focus1;
-  constructor( private apiservice: FeaturedRestaurantApiService ) { }
 
-  ngOnInit(){
-    this.apiservice.getRestaurants().subscribe((restaurants: Restaurant[]) => {
-      this.restaurants = restaurants;
-      this.restaurants.forEach(item => {
-        console.log(item);
-      });
-    });
-  } 
+  constructor() {
+    
+  }
 
-  
-  
+  ngOnInit() {
+    this.part_num = 0;
+  }
+
+  setNum(num: any) {
+    this.part_num = num;
+  }
 }

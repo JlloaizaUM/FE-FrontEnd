@@ -13,6 +13,8 @@ import { ComponentsModule } from './components/components.module';
 import { ExamplesModule } from './examples/examples.module';
 import { ClientViewModule } from './client-view/client-view.module';
 import { HttpClientModule } from '@angular/common/http';
+import { RestaurantPageComponent } from './client-view/restaurant-page/restaurant-page.component';
+import { RestViewModule } from './rest-view/rest-view.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
     ExamplesModule,
     AppRoutingModule,
     ClientViewModule,
-    HttpClientModule
+    HttpClientModule,
+    RestViewModule
   ],
   bootstrap: [AppComponent]
 })

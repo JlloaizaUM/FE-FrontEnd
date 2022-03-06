@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { Location } from '@angular/common';
 
 @Component({
     selector: 'app-navbar',
@@ -55,7 +55,19 @@ export class NavbarComponent implements OnInit {
         if (titlee.charAt(0) === '#') {
             titlee = titlee.slice(1);
         }
-        if (titlee === '/home') {
+        if (titlee === '/landing') {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    isExplore() {
+        var titlee = this.location.prepareExternalUrl(this.location.path());
+        if (titlee.charAt(0) === '#') {
+            titlee = titlee.slice(1);
+        }
+        if (titlee === '/explorar') {
             return true;
         }
         else {

@@ -65,12 +65,11 @@ export class AppComponent implements OnInit {
     removeNav() {
         var titlee = this.location.prepareExternalUrl(this.location.path());
         titlee = titlee.slice(1);
-        var pagina = titlee.split("/")[1];
-        let routes = ['landing', 'restaurant']
-        if (routes.includes(pagina)) {
+        var pagina = titlee.split('/');
+        let routes = ['landing', 'restaurant'];
+        if (routes.includes(pagina[0])) {
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }

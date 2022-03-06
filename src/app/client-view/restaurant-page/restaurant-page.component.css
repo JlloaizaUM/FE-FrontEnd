@@ -8,3 +8,10 @@
 .card-restaurante:hover{
     font-size: 1.05em;
 }
+
+.shadowed{
+    box-shadow: 10px -10px rgba(0,0,0,0.6);
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 1);
+    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 1);
+}
