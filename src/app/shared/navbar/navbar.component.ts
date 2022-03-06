@@ -15,11 +15,8 @@ export class NavbarComponent implements OnInit {
     }
 
     ngOnInit() {
-        if (!this.isSignin()) {
-            const navbar: HTMLElement = this.element.nativeElement;
-            this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
-        }
-
+        const navbar: HTMLElement = this.element.nativeElement;
+        this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
     }
     sidebarOpen() {
         const toggleButton = this.toggleButton;
@@ -80,18 +77,6 @@ export class NavbarComponent implements OnInit {
             titlee = titlee.slice(1);
         }
         if (titlee === '/documentation') {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-    isSignin() {
-        var titlee = this.location.prepareExternalUrl(this.location.path());
-        if (titlee.charAt(0) === '#') {
-            titlee = titlee.slice(1);
-        }
-        if (titlee === '/signin') {
             return true;
         }
         else {

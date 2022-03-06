@@ -13,8 +13,8 @@ import { ComponentsModule } from './components/components.module';
 import { ExamplesModule } from './examples/examples.module';
 import { ClientViewModule } from './client-view/client-view.module';
 import { HttpClientModule } from '@angular/common/http';
-import { RestaurantPageComponent } from './client-view/restaurant-page/restaurant-page.component';
 import { RestViewModule } from './rest-view/rest-view.module';
+import { AuthViewModule } from './auth-view/auth-view.module';
 
 @NgModule({
   declarations: [
@@ -30,9 +30,10 @@ import { RestViewModule } from './rest-view/rest-view.module';
     ComponentsModule,
     ExamplesModule,
     AppRoutingModule,
-    ClientViewModule,
     HttpClientModule,
-    RestViewModule
+    ClientViewModule,
+    RestViewModule,
+    AuthViewModule
   ],
   bootstrap: [AppComponent]
 })

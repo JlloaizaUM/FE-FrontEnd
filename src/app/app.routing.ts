@@ -8,10 +8,11 @@ import { ProfileComponent } from './examples/profile/profile.component';
 import { SigninComponent } from './auth-view/signin/signin.component';
 import { LandingComponent } from './client-view/landing/landing.component';
 import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
+import { RestEditComponent } from './rest-view/rest-edit/rest-edit.component';
+import { ForgotPasswordComponent } from './auth-view/forgot-password/forgot-password.component';
 import { RestaurantPageComponent } from './client-view/restaurant-page/restaurant-page.component';
 import { PageNotFoundComponent } from './client-view/page-not-found/page-not-found.component';
-import { RestEditComponent } from './rest-view/rest-edit/rest-edit.component';
-
+import { RegisterClientComponent } from './auth-view/register-client/register-client.component'; 
 
 
 const routes: Routes =[
@@ -23,7 +24,10 @@ const routes: Routes =[
     { path: 'nucleoicons',                     component: NucleoiconsComponent },
     { path: 'restaurant/:restaurantPath',      component: RestaurantPageComponent},
     { path: 'restaurant/:restaurantPath/edit', component: RestEditComponent},
-    { path: '**',                              component: PageNotFoundComponent}
+    { path: '**',                              component: PageNotFoundComponent},
+    { path: 'forgot-password',          component: ForgotPasswordComponent},
+    { path: 'register-client',           component: RegisterClientComponent},
+   
 ];
 
 @NgModule({
