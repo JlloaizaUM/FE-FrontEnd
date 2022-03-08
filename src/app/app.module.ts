@@ -15,6 +15,7 @@ import { ClientViewModule } from './client-view/client-view.module';
 import { HttpClientModule } from '@angular/common/http';
 import { RestViewModule } from './rest-view/rest-view.module';
 import { AuthViewModule } from './auth-view/auth-view.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AuthViewModule } from './auth-view/auth-view.module';
     HttpClientModule,
     ClientViewModule,
     RestViewModule,
-    AuthViewModule
+    AuthViewModule,
+    ReactiveFormsModule
   ],
   bootstrap: [AppComponent]
 })

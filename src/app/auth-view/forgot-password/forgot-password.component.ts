@@ -11,8 +11,12 @@ export class ForgotPasswordComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  recuperar = {
+    email: ''
+  }
+
   onReset(){
-    console.log('Correo enviado')
+    console.log('Correo enviado a', this.recuperar)
   }
 
 }

@@ -19,7 +19,7 @@ const routes: Routes = [
       },
       {
         path:'register-client',
-        component:  RegisterClientComponent,
+        component: RegisterClientComponent,
         data:{
         title:'register-client'
       }

@@ -16,7 +16,6 @@ export class NgbdModalContent{
 
   constructor(public activeModal: NgbActiveModal) { }
   
-
 }
 
 @Component({
