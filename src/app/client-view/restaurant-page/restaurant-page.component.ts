@@ -13,6 +13,7 @@ export class NgbdModalContent{
   @Input() dish:any;
 
   constructor(public activeModal: NgbActiveModal) { }
+  
 }
 
 @Component({

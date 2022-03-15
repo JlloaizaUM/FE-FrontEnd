@@ -7,7 +7,7 @@ import { RestaurantPage } from "app/client-view/model/restaurant-page";
 @Injectable({   providedIn: 'root' })
 
 export class PageApiService {
-  private APIurl = "http://localhost:3000/restaurant/";
+  private APIurl = "http://192.168.1.5:3000/restaurant/";
 
   constructor(private http: HttpClient) {}
 

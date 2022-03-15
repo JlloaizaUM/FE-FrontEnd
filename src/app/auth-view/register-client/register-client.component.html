@@ -1,15 +1,15 @@
 <div class="wrapper">
-    <div class="page-header" style="background-image: url('./assets/img/restaurante2.jpg');">
-      <div class="filter"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
-            <div class="card card-register" style="background-color: white; margin-top: 70px">
-              <h3 class="title" style="margin-bottom: 30px;">¡Registrate!</h3>
-              <div class="social-line text-center">
+  <div class="page-header" style="background-image: url('./assets/img/restaurante2.jpg');">
+    <div class="filter"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
+          <div class="card card-register" style="background-color: white; margin-top: 70px">
+            <h3 class="title" style="margin-bottom: 30px;">¡Registrate!</h3>
+            <div class="social-line text-center">
             </div>
 
-            <form class="register-form" [FormGroup]="registerForm" (ngSubmit)="onRegister()">
+            <form class="register-form" [FormGroup]="registerForm" (ngSubmit)="onRegister()" action="" >
               <label>Correo</label>
               <div class="input-group" [ngClass]="{'input-group-focus':focus===true}">
                 <div class="input-group-prepend">
@@ -18,8 +18,8 @@
                   </span>
                 </div>
 
-                <input type="text" class="form-control" formControlName = "email" placeholder="Email" (focus)="focus=true" (blur)="focus=false"
-                style="border-color: #DDDDDD;" />
+                <input type="text" class="form-control" placeholder="Email" (focus)="focus=true" (blur)="focus=false"
+                  [(ngModel)]="registrar.email" [ngModelOptions]="{standalone: true}" style="border-color: #DDDDDD;" />
               </div>
 
               <label>Contraseña</label>
@@ -29,27 +29,29 @@
                     <i class="nc-icon nc-key-25"></i>
                   </span>
                 </div>
-                <input type="password" class="form-control" formControlName = "password"  placeholder="Password" (focus)="focus1=true"
-                  (blur)="focus1=false" style="border-color: #DDDDDD;" />
+                <input type="password" class="form-control" placeholder="Password" (focus)="focus1=true"
+                  (blur)="focus1=false" [(ngModel)]="registrar.password" [ngModelOptions]="{standalone: true}"
+                  style="border-color: #DDDDDD;" />
               </div>
-              
+
             </form>
-           
+
             <div class="register">
-              <button class="btn btn-block btn-danger btn-round" style="margin-top:20px">Regístrate</button>
+              <button class="btn btn-block btn-danger btn-round" style="margin-top:20px"
+                (click)="register()">Regístrate</button>
             </div>
 
 
             <div class="return">
-                <a href="#/signin" class="btn btn-link btn-danger btn-block btn-round">¿Volver al login?</a>
-                <br>
-                <a href="#/landing" class="btn btn-link btn-danger btn-block btn-round btn-outline">¿Volver a inicio?</a>
-              
+              <a href="signin" class="btn btn-link btn-danger btn-block btn-round">¿Volver al login?</a>
+              <br>
+              <a href="landing" class="btn btn-link btn-danger btn-block btn-round btn-outline">¿Volver a inicio?</a>
+
             </div>
 
           </div>
         </div>
-  
+
       </div>
     </div>
   </div>

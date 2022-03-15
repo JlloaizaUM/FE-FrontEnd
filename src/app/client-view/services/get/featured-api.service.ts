@@ -7,7 +7,7 @@ import { Observable } from "rxjs";
 @Injectable({   providedIn: 'root' })
 
 export class FeaturedRestaurantApiService {
-  private APIurl = "http://localhost:3000/restaurants";
+  private APIurl = "http://192.168.1.5:3000/restaurants";
 
   constructor(private http: HttpClient) {}
 
