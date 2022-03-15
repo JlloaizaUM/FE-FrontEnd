@@ -1,16 +1,34 @@
 <div class="modal-header">
-    <h5 class="modal-title text-center">{{dish.name}}</h5>
+    <h5 class="modal-title text-center" contenteditable="true" #dishName>{{dish.name}}</h5>
     <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
-    <span aria-hidden="true">&times;</span>
+        <span aria-hidden="true">&times;</span>
     </button>
 </div>
 <img class="card-img-top" src={{dish.url}}>
-<div class="modal-body">
-<p>{{dish.descripcion}}</p>
+<a (click)="changeTxt()" class="btn btn-neutral"><i class="bi bi-file-earmark-plus"></i> Subir imagen</a>
+<p class="ml-2">Tamaño máximo: 2MB <br></p>
 
+<div class="modal-body px-2">
+    <p class="ml-2">Descripción:<br></p>
+    <div class="col-10" contenteditable="true">
+        <p #dishDescription>{{dish.descripcion}}</p>
+    </div>
+    <p class="ml-2">Precio:</p>
+    <div class="ml-2 d-flex justify-content-left">
+        <div>
+            <p>$</p>
+        </div>
+        <div class="container-fluid pl-1 pr-5" contenteditable="true">
+            <p type="number" #dishPrice>{{dish.precio}}</p>
+        </div>
+    </div>
 </div>
+
 <div class="modal-footer">
     <div class="center-side">
-        <button type="button" class="btn btn-default btn-link" (click)="activeModal.close('Close click')">Volver</button>
+        <div class="d-flex justify-content-end">
+            <button type="button" class="btn btn-default btn-link" (click)="sendChanges()">Aplicar</button>
+            <button type="button" class="btn btn-danger btn-link" (click)="activeModal.close('Close click')">Volver</button>
+        </div>
     </div>
 </div>

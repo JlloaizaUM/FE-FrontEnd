@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="wrapper" *ngIf="page">
     <div class="page-header page-header-xs" data-parallax="true"
         style="background-image: url('{{page.restaurant.img_banner}}');">
         <div class="filter"></div>
@@ -12,18 +12,20 @@
                 <h1 class="title mt-2">{{page.restaurant.name}}<br /></h1>
             </div>
             <br />
-            <div *ngIf="page" class="d-flex justify-content-center">
-                <button type="button" class="btn btn-outline-default btn-round mb-5"><i
-                        class="nc-icon nc-settings-gear-65"></i> Editar platos </button>
+            <div class="d-flex justify-content-center">
             </div>
             <div class="row d-flex justify-content-center">
                 <div class="col">
                     <ngb-tabset [justify]="'center'">
                         <ngb-tab *ngFor="let category of page.categories" title="{{category.name}}">
-                            <ng-template ngbTabContent>
+                            <ng-template ngbTabContent class="">
+                                <div class="container d-flex justify-content-center">
+                                    <button class="btn mb-4"><i class="bi bi-plus-circle"></i> Agregar plato</button>
+                                </div>
                                 <div class="row justify-content-center">
                                     <div class="card mx-2" style="max-width:225px" *ngFor="let dish of category.dishes">
-                                        <a href="javascript:void(0)" (click)="openModal(dish)" class=" stretched-link ">
+                                        <a href="javascript:void(0)" (click)="openEditModal(dish)"
+                                            class="stretched-link">
                                             <img class="card-img-top " src={{dish.url}} />
                                         </a>
                                         <div class="card-body">
