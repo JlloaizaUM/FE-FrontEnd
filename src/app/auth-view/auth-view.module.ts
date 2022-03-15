@@ -8,11 +8,15 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProfileComponent } from './profile/profile.component';
+import { FormComponent } from './component/form/form.component';
 @NgModule({
   declarations: [
     SigninComponent,
     RegisterClientComponent,
     ForgotPasswordComponent,
+    ProfileComponent,
+    FormComponent,
     
   ],
   imports: [

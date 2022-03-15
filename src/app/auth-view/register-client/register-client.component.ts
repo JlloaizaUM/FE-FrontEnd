@@ -9,20 +9,16 @@ import { RegisterApiService } from '../services/post/register-api.service';
 })
 export class RegisterClientComponent implements OnInit {
 
-  registrar = {
-    email: '',
-    password: ''
-  }
+  
 
-  register(){
-    this.apiService.registerByEmail(this.registrar)
-  }
+  
 
   constructor(
     private apiService: RegisterApiService
   ) { }
 
   ngOnInit(): void {
+    
   }
 
 }
