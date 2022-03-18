@@ -1,7 +1,8 @@
 import { Component, OnInit, Input} from '@angular/core';
-//import { auth} from 'firebase/app';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
 
+
+import { AngularFireAuth } from '@angular/fire/auth';
+//import  auth  from 'firebase/app';
 
 @Component({
   selector: 'app-form',
@@ -10,9 +11,9 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 })
 export class FormComponent implements OnInit {
 
-  @Input() action:String; 
-  email = 'cristian@afdju.com';
-  password = '12345'
+  @Input() action:string; 
+
+ 
 
   
   constructor(private auth: AngularFireAuth) {}
@@ -21,8 +22,6 @@ export class FormComponent implements OnInit {
     console.log(this.action);
   }
 
-  LoginWithGoogle(){
-    //this.auth.auth.signInWitPopup(new auth.GoogleAuthProvaider);
-  }
+  
 
 }
