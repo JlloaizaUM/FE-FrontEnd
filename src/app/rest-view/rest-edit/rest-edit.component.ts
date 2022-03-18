@@ -64,10 +64,14 @@ export class RestEditComponent implements OnInit {
 
   openCreateModal(dish: any) {
     const modalRef = this.modalService.open(ModalCreateComponent);
+    
 
     modalRef.componentInstance.passEntry.subscribe((receivedEntry: any) => {
-      
+      this.page.categories[0].dishes.push(dish);
     });
   }
 
+  create(){
+    
+  }
 }
