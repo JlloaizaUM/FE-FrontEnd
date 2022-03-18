@@ -15,7 +15,7 @@ export class RegisterClientComponent implements OnInit {
   }
 
   register(){
-    this.apiService.registerByEmail(this.registrar)
+    
   }
 
   constructor(

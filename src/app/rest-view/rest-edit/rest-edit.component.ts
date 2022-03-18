@@ -1,46 +1,9 @@
-import { Component, ElementRef, Input, OnInit, Output, ViewChild, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PageApiService } from 'app/client-view/services/get/page-api.service';
-
-
-@Component({
-  selector: 'app-modal-content',
-  templateUrl: './rest-modal-edit.modal.html',
-  styleUrls: ['./rest-edit.component.css']
-})
-export class NgbdModalContent {
-  @Input() dish: any;
-
-  @Output() updatedDishEvent = new EventEmitter();
-
-  @ViewChild("dishDescription") dishDescription: ElementRef;
-  @ViewChild("dishName") dishName: ElementRef;
-  @ViewChild("dishPrice") dishPrice: ElementRef;
-
-  constructor(public activeModal: NgbActiveModal) { }
-
-  changeTxt() {
-    console.log(this.dishName.nativeElement.innerHTML);
-  }
-
-  sendChanges() {
-    let updatedDish = {
-      id: "",
-      name: "",
-      descripcion: "",
-      precio: Number,
-    };
-    updatedDish.id = this.dish.id;
-    updatedDish.name = this.dishName.nativeElement.innerHTML;
-    updatedDish.descripcion = this.dishDescription.nativeElement.innerHTML;
-    updatedDish.precio = this.dishPrice.nativeElement.innerHTML;
-    //console.log(updatedDish)
-    this.activeModal.close(updatedDish);
-  }
-
-}
-
+import { ModalEditComponent } from './modal-edit.component';
+import { ModalCreateComponent } from './modal-create.component';
 
 @Component({
   selector: 'app-rest-edit',
@@ -64,7 +27,6 @@ export class RestEditComponent implements OnInit {
       this.page = restaurant;
     });
 
-
   }
 
   isPremium() {
@@ -76,7 +38,7 @@ export class RestEditComponent implements OnInit {
   }
 
   openDetailModal(dish: any) {
-    const modalRef = this.modalService.open(NgbdModalContent);
+    const modalRef = this.modalService.open(ModalEditComponent);
     modalRef.componentInstance.dish = dish;
     modalRef.result.then(function (result) {
       console.log(result);
@@ -84,44 +46,28 @@ export class RestEditComponent implements OnInit {
   }
 
   openEditModal(dish: any) {
-    const modalRef = this.modalService.open(NgbdModalContent);
+    const modalRef = this.modalService.open(ModalEditComponent);
+
     modalRef.componentInstance.dish = dish;
 
-    let newDish:any;
-    modalRef.result.then(function (result) {
-      newDish = result;
+
+    modalRef.componentInstance.passEntry.subscribe((receivedEntry: any) => {
+      console.log(this.page.categories);
+      let index = this.page.categories.findIndex(cat => cat.name === receivedEntry.cat)
+      let index2 = this.page.categories[index].dishes.findIndex(plato => plato.id === receivedEntry.id);
+
+      this.page.categories[index].dishes[index2] = receivedEntry;
       
-      //getDish(saveDishInDatabase, result);
+      console.log(this.page.categories[index].dishes[index2]);
     });
-
-    let index = this.page.categories.findIndex( ({ id }) => id === dish.id);
-    this.page.categories[index] = dish;
-
-    console.log(newDish);
-    console.log(this.page.categories[index]);
-    
-    /*
-    var getDish = function (callback, dish) {
-      // get the username somehow
-      var username = dish;
-      callback(username);
-    };
-
-    var saveDishInDatabase = function (dish, categories) {
-      let index = categories.findIndex( ({ id }) => id === dish.id);
-      categories[index] = dish;
-    };
-    */
-
-    
   }
 
   openCreateModal(dish: any) {
-    const modalRef = this.modalService.open(NgbdModalContent);
-    modalRef.componentInstance.dish = dish;
-    modalRef.result.then(function (result) {
-      console.log(result);
-    })
+    const modalRef = this.modalService.open(ModalCreateComponent);
+
+    modalRef.componentInstance.passEntry.subscribe((receivedEntry: any) => {
+      
+    });
   }
 
 }
