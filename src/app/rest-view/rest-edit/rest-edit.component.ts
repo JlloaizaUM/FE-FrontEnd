@@ -50,7 +50,6 @@ export class RestEditComponent implements OnInit {
 
     modalRef.componentInstance.dish = dish;
 
-
     modalRef.componentInstance.passEntry.subscribe((receivedEntry: any) => {
       console.log(this.page.categories);
       let index = this.page.categories.findIndex(cat => cat.name === receivedEntry.cat)
