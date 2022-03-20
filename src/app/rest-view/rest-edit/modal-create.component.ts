@@ -25,9 +25,15 @@ export class ModalCreateComponent implements OnInit {
     url: ''
   };
 
+  priceEdit: boolean = false;
+  nameEdit: boolean = false;
+  descEdit: boolean = false;
+  notNumber: boolean = false;
+
   @ViewChild("imgInput") imgInput: ElementRef;
 
   @Input() cat: any;
+  @Input() pageID: any;
 
   @Output() passEntry: EventEmitter<any> = new EventEmitter();
 
@@ -37,6 +43,23 @@ export class ModalCreateComponent implements OnInit {
     private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void { }
+
+  onPriceEdit() {
+    if (this.nDish.precio) {
+      this.priceEdit = !this.priceEdit;
+      this.notNumber = false;
+    } else {
+      this.notNumber = true;
+    }
+  }
+
+  onNameEdit() {
+    this.nameEdit = !this.nameEdit;
+  }
+
+  onDescEdit() {
+    this.descEdit = !this.descEdit;
+  }
 
   sendChanges() {
     this.passEntry.emit(this.nDish);
@@ -69,11 +92,11 @@ export class ModalCreateComponent implements OnInit {
   upload() {
     this.message = undefined;
     //this.currentFile = this.selectedFiles.item(0);
-    this.uploadService.upload(this.currentFile).subscribe(
+    console.log(1)
+    this.uploadService.upload(this.currentFile, '').subscribe(
       event => {
-        if (event.type === HttpEventType.UploadProgress) {
-          this.progress = Math.round(100 * event.loaded / event.total);
-        } else if (event instanceof HttpResponse) {
+        console.log(2)
+        if (event instanceof HttpResponse) {
           this.nDish.url = event.body.url;
         }
       },
