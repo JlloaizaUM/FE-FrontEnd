@@ -1,10 +1,9 @@
 import { Component, OnInit, Output, EventEmitter, Input, ViewChild, ElementRef } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UploadFilesService } from '../services/upload-files.service';
 import { DomSanitizer } from '@angular/platform-browser';
-import { textChangeRangeIsUnchanged } from 'typescript';
+
 
 @Component({
   selector: 'app-modal-create',
@@ -21,7 +20,7 @@ export class ModalCreateComponent implements OnInit {
   nDish: any = {
     name: 'Nombre del plato',
     descripcion: 'Descripción',
-    precio: '0',
+    precio: 0,
     url: ''
   };
 
@@ -32,7 +31,6 @@ export class ModalCreateComponent implements OnInit {
 
   @ViewChild("imgInput") imgInput: ElementRef;
 
-  @Input() cat: any;
   @Input() pageID: any;
 
   @Output() passEntry: EventEmitter<any> = new EventEmitter();
@@ -45,7 +43,7 @@ export class ModalCreateComponent implements OnInit {
   ngOnInit(): void { }
 
   onPriceEdit() {
-    if (this.nDish.precio) {
+    if (this.nDish.precio != null || !isNaN(this.nDish.precio)) {
       this.priceEdit = !this.priceEdit;
       this.notNumber = false;
     } else {
@@ -61,7 +59,13 @@ export class ModalCreateComponent implements OnInit {
     this.descEdit = !this.descEdit;
   }
 
-  sendChanges() {
+  async sendChanges() {
+    if (this.currentFile) {
+      await this.uploadImg(this.currentFile).then(data=>{
+        this.nDish.url=data.url;
+      });
+    }
+
     this.passEntry.emit(this.nDish);
     this.activeModal.close('Close click');
   }
@@ -75,7 +79,7 @@ export class ModalCreateComponent implements OnInit {
     const element = event.currentTarget as HTMLInputElement;
     let fileList: FileList | null = element.files;
     if (fileList) {
-      let fileSize = ((fileList[0].size / 1024) / 1024);      
+      let fileSize = ((fileList[0].size / 1024) / 1024);
 
       if (fileSize <= 2) {
         this.currentFile = fileList[0];
@@ -89,23 +93,9 @@ export class ModalCreateComponent implements OnInit {
     }
   }
 
-  upload() {
-    this.message = undefined;
-    //this.currentFile = this.selectedFiles.item(0);
-    console.log(1)
-    this.uploadService.upload(this.currentFile, '').subscribe(
-      event => {
-        console.log(2)
-        if (event instanceof HttpResponse) {
-          this.nDish.url = event.body.url;
-        }
-      },
-      err => {
-        this.progress = 0;
-        this.message = 'Could not upload the file!';
-        this.currentFile = undefined;
-      });
-    //this.selectedFiles = undefined;
+  async uploadImg(file: File) {
+    let promise = await this.uploadService.upload(file, this.pageID);
+    return promise;
   }
 
   delay(ms: number) {

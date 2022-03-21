@@ -28,18 +28,16 @@
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-
     </div>
-
-
-
-
 </div>
-<img class="card-img-top" src={{editableDish.url}}>
-<a (click)="changeTxt()" class="btn btn-neutral"><i class="bi bi-file-earmark-plus"></i> Subir imagen</a>
-<p class="ml-2">Tamaño máximo: 2MB <br></p>
+
 
 <div class="modal-body px-2">
+    <img class="card-img-top" [src]=editableDish.url>
+    <input type="file" style="display: none;" id="selectedFile" name="img" accept="image/png, image/jpeg"
+        (change)="selectFile($event)" #imgInput>
+    <a (click)="imgInput.click()" class="btn btn-neutral"><i class="bi bi-file-earmark-plus"></i> Subir imagen</a>
+    <p [ngClass]="{'ahashakeheartache': isSizeError, 'faded': !isSizeError}" class="ml-2">Tamaño máximo: 2MB <br></p>
     <p class="ml-2">Descripción:<br></p>
     <div class="ml-2 d-flex justify-content-left">
         <div class="container-fluid pl-1 pr-5">
@@ -88,8 +86,6 @@
                     </a>
                 </div>
             </div>
-            
-            
 
             <div class="d-flex flex-row" *ngIf="!priceEdit">
                 <h5>$</h5>

@@ -5,11 +5,11 @@ import { environment } from "environments/environment";
 @Injectable({   providedIn: 'root' })
 
 export class PageApiService {
-  private APIurl = "http://".concat(environment.back_url, ":", environment.back_port, "/restaurant/");
+  private APIurl = `http://${environment.back_url}:${environment.back_port}/restaurant/`
 
   constructor(private http: HttpClient) {}
 
   public getRestaurantData( path:string ) {
-    return this.http.get((this.APIurl+path));
+    return this.http.get(this.APIurl+path);
   }
 }

@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbTabChangeEvent } from '@ng-bootstrap/ng-bootstrap';
 import { PageApiService } from 'app/client-view/services/get/page-api.service';
 import { ModalEditComponent } from './modal-edit.component';
 import { ModalCreateComponent } from './modal-create.component';
+import { UploadDishService } from '../services/upload-dish.service';
+import { DeleteDishService } from '../services/delete-dish.service';
 
 @Component({
   selector: 'app-rest-edit',
@@ -13,20 +15,27 @@ import { ModalCreateComponent } from './modal-create.component';
 export class RestEditComponent implements OnInit {
 
   page: any;
+  selectedTab: number = 0;
+  path: string;
 
   constructor(
     private modalService: NgbModal,
     private route: ActivatedRoute,
-    private apiservice: PageApiService
+    private getRestaurantService: PageApiService,
+    private uploadDishService: UploadDishService,
+    private deleteDishService: DeleteDishService
   ) { }
 
   async ngOnInit() {
     const routeParams = this.route.snapshot.paramMap;
-    let path = routeParams.get('restaurantPath');
-    this.apiservice.getRestaurantData(path).subscribe((restaurant) => {
+    this.path = routeParams.get('restaurantPath');
+    this.getRestaurants();
+  }
+
+  getRestaurants() {
+    this.getRestaurantService.getRestaurantData(this.path).subscribe((restaurant) => {
       this.page = restaurant;
     });
-
   }
 
   isPremium() {
@@ -41,7 +50,6 @@ export class RestEditComponent implements OnInit {
     const modalRef = this.modalService.open(ModalEditComponent);
     modalRef.componentInstance.dish = dish;
     modalRef.result.then(function (result) {
-      console.log(result);
     });
   }
 
@@ -51,26 +59,36 @@ export class RestEditComponent implements OnInit {
     modalRef.componentInstance.dish = dish;
 
     modalRef.componentInstance.passEntry.subscribe((receivedEntry: any) => {
-      console.log(this.page.categories);
-      let index = this.page.categories.findIndex(cat => cat.name === receivedEntry.cat)
-      let index2 = this.page.categories[index].dishes.findIndex(plato => plato.id === receivedEntry.id);
-
-      this.page.categories[index].dishes[index2] = receivedEntry;
-      
-      console.log(this.page.categories[index].dishes[index2]);
+      this.uploadDishService.updateDish(
+        receivedEntry,
+        this.page.restaurant.id).subscribe(dish => {
+          this.getRestaurants();
+        })
     });
   }
 
   openCreateModal() {
     const modalRef = this.modalService.open(ModalCreateComponent);
+    modalRef.componentInstance.pageID = this.page.restaurant.id;
     modalRef.componentInstance.passEntry.subscribe((receivedEntry: any) => {
 
-      console.log(receivedEntry);
-      this.page.categories[0].dishes.push(receivedEntry);
+      this.uploadDishService.uploadDish(
+        receivedEntry,
+        this.page.restaurant.id,
+        this.page.categories[this.selectedTab].name).subscribe(dish => {
+          this.getRestaurants();
+        })
     });
   }
 
-  create(){
-    
+  onTabChange(event: NgbTabChangeEvent) {
+    this.selectedTab = +event.nextId;
+  }
+
+  clickMethod(dish:any) {
+    if(confirm("¿Estás seguro que deseas eliminar este plato?")) {
+      this.deleteDishService.deleteDish(dish, this.page.restaurant.id).subscribe();
+      this.getRestaurants();
+    }
   }
 }
