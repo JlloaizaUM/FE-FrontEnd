@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgbModal, NgbTabChangeEvent } from '@ng-bootstrap/ng-bootstrap';
 import { PageApiService } from 'app/client-view/services/get/page-api.service';
-import { ModalEditComponent } from './modal-edit.component';
-import { ModalCreateComponent } from './modal-create.component';
+import { ModalEditComponent } from './modal/modal-edit.component';
+import { ModalCreateComponent } from './modal/modal-create.component';
+import { DialogCategoryComponent } from './modal/dialog-category.component';
 import { UploadDishService } from '../services/upload-dish.service';
 import { DeleteDishService } from '../services/delete-dish.service';
 
@@ -17,6 +18,8 @@ export class RestEditComponent implements OnInit {
   page: any;
   selectedTab: number = 0;
   path: string;
+
+  @ViewChild('ctdTabset') ctdTabset;
 
   constructor(
     private modalService: NgbModal,
@@ -71,22 +74,44 @@ export class RestEditComponent implements OnInit {
     const modalRef = this.modalService.open(ModalCreateComponent);
     modalRef.componentInstance.pageID = this.page.restaurant.id;
     modalRef.componentInstance.passEntry.subscribe((receivedEntry: any) => {
-
       this.uploadDishService.uploadDish(
         receivedEntry,
-        this.page.restaurant.id,
-        this.page.categories[this.selectedTab].name).subscribe(dish => {
+        this.page.restaurant.id, this.page.categories[this.selectedTab].name).subscribe(dish => {
           this.getRestaurants();
         })
     });
+  }
+
+  openNewCat() {
+    let cant = this.page.categories.length;
+    let actualTab = this.selectedTab;
+    let catName: string;
+    const modalRef = this.modalService.open(DialogCategoryComponent);
+    modalRef.result.then(
+      data => {
+        catName = data;
+
+        const modalCreate = this.modalService.open(ModalCreateComponent);
+        modalCreate.componentInstance.pageID = this.page.restaurant.id;
+
+        modalCreate.componentInstance.passEntry.subscribe((receivedEntry: any) => {
+          this.uploadDishService.uploadDish(
+            receivedEntry,
+            this.page.restaurant.id, catName).subscribe(dish => {
+              this.getRestaurants();
+            })
+        });
+      }
+    );
+
   }
 
   onTabChange(event: NgbTabChangeEvent) {
     this.selectedTab = +event.nextId;
   }
 
-  clickMethod(dish:any) {
-    if(confirm("¿Estás seguro que deseas eliminar este plato?")) {
+  clickMethod(dish: any) {
+    if (confirm("¿Estás seguro que deseas eliminar este plato?")) {
       this.deleteDishService.deleteDish(dish, this.page.restaurant.id).subscribe();
       this.getRestaurants();
     }

@@ -13,10 +13,12 @@
             </div>
             <br />
             <div class="d-flex justify-content-center">
+                <button (click)="openNewCat()" class="btn mb-4"><i
+                        class="bi bi-plus-circle"></i> Agregar categoria</button>
             </div>
             <div class="row d-flex justify-content-center">
                 <div class="col">
-                    <ngb-tabset [justify]="'center'" (tabChange)="onTabChange($event)">
+                    <ngb-tabset [justify]="'center'" (tabChange)="onTabChange($event)" [activeId]="selectedTab+''">
                         <ngb-tab *ngFor="let category of page.categories; let i = index" title="{{category.name}}"
                             id="{{i}}">
                             <ng-template ngbTabContent class="">
@@ -54,9 +56,7 @@
                     </ngb-tabset>
                     <br><br>
                     <div class="d-flex justify-content-center">
-                        <p class="text-align-center">Contáctanos al 0180007893 o vísitanos en nuestra sede principal en
-                            Manizales en la calle 3
-                            #12-32.</p>
+                        <p class="text-align-center">{{page.restaurant.footer_info}}</p>
                     </div>
 
                 </div>

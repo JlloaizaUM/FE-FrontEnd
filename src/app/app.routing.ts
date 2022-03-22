@@ -29,8 +29,6 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'panel-config', component: PanelConfigComponent},
   { path: '**', component: PageNotFoundComponent },
-  
-
 ];
 
 @NgModule({

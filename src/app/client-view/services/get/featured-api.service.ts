@@ -8,7 +8,7 @@ import { environment } from "environments/environment";
 @Injectable({   providedIn: 'root' })
 
 export class FeaturedRestaurantApiService {
-  private APIurl = "http://".concat(environment.back_url, ":", environment.back_port, "/restaurants");
+  private APIurl = `http://${environment.back_url}:${environment.back_port}/restaurants`;
 
   constructor(private http: HttpClient) {}
 

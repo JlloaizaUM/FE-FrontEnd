@@ -1,49 +1,41 @@
-import { Component, OnInit, Output, EventEmitter, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { Observable } from 'rxjs';
-import { UploadFilesService } from '../services/upload-files.service';
 import { DomSanitizer } from '@angular/platform-browser';
-
+import { UploadDishService } from '../../services/upload-dish.service';
+import { UploadFilesService } from '../../services/upload-files.service';
 
 @Component({
-  selector: 'app-modal-create',
-  templateUrl: './modal-create.component.html',
-  styleUrls: ['./modal-create.component.css']
+  selector: 'app-modal-edit',
+  templateUrl: './modal-edit.component.html',
+  styleUrls: ['./modal-edit.component.css']
 })
-export class ModalCreateComponent implements OnInit {
-
-  currentFile: File;
-  progress = 0;
-  message = '';
-  fileInfos: Observable<any>;
-  isSizeError: boolean = false;
-  nDish: any = {
-    name: 'Nombre del plato',
-    descripcion: 'Descripción',
-    precio: 0,
-    url: ''
-  };
+export class ModalEditComponent implements OnInit {
 
   priceEdit: boolean = false;
   nameEdit: boolean = false;
   descEdit: boolean = false;
   notNumber: boolean = false;
+  isSizeError: boolean = false;
+  currentFile: File;
 
-  @ViewChild("imgInput") imgInput: ElementRef;
+  editableDish: any;
 
-  @Input() pageID: any;
+  @Input() dish: any;
 
   @Output() passEntry: EventEmitter<any> = new EventEmitter();
 
   constructor(
     public activeModal: NgbActiveModal,
-    private uploadService: UploadFilesService,
-    private sanitizer: DomSanitizer) { }
+    private sanitizer: DomSanitizer,
+    private uploadService: UploadFilesService) { }
 
-  ngOnInit(): void { }
+  ngOnInit() { 
+    this.editableDish = Object.assign({}, this.dish); 
+  }
 
   onPriceEdit() {
-    if (this.nDish.precio != null || !isNaN(this.nDish.precio)) {
+    console.log(this.editableDish.precio);
+    if (this.editableDish.precio != null || !isNaN(this.editableDish.precio)) {
       this.priceEdit = !this.priceEdit;
       this.notNumber = false;
     } else {
@@ -62,15 +54,13 @@ export class ModalCreateComponent implements OnInit {
   async sendChanges() {
     if (this.currentFile) {
       await this.uploadImg(this.currentFile).then(data=>{
-        this.nDish.url=data.url;
+        this.editableDish.url=data.url;
       });
     }
 
-    this.passEntry.emit(this.nDish);
-    this.activeModal.close('Close click');
-  }
-
-  onClose() {
+    if (JSON.stringify(this.editableDish) !== JSON.stringify(this.dish)) {
+      this.passEntry.emit(this.editableDish);
+    }
     this.activeModal.close('Close click');
   }
 
@@ -80,10 +70,11 @@ export class ModalCreateComponent implements OnInit {
     let fileList: FileList | null = element.files;
     if (fileList) {
       let fileSize = ((fileList[0].size / 1024) / 1024);
-
-      if (fileSize <= 2) {
+      if (fileSize < 2) {
         this.currentFile = fileList[0];
-        this.nDish.url = this.sanitizer.bypassSecurityTrustResourceUrl(URL.createObjectURL(fileList[0]));
+        let url = URL.createObjectURL(fileList[0]);
+        this.editableDish.url = this.sanitizer.bypassSecurityTrustResourceUrl(url);
+        console.log(this.editableDish);
       } else {
         element.files = undefined;
         this.isSizeError = true;
@@ -94,7 +85,7 @@ export class ModalCreateComponent implements OnInit {
   }
 
   async uploadImg(file: File) {
-    let promise = await this.uploadService.upload(file, this.pageID);
+    let promise = await this.uploadService.upload(file, this.editableDish.id);
     return promise;
   }
 

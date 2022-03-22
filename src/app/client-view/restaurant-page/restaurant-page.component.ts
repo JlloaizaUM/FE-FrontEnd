@@ -40,10 +40,6 @@ export class RestaurantPageComponent implements OnInit {
 
   }
 
-  testButton(){
-    console.log(this.page);
-  }
-
   isPremium() {
     return false;
   }

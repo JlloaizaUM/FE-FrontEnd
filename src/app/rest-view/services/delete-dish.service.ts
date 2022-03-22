@@ -21,8 +21,6 @@ export class DeleteDishService {
         .append("id", dish.id)
     };
 
-    console.log(httpOptions);
-
     return this.http.delete(`${this.baseUrl}/delete-dish`, httpOptions);
   }
 }
