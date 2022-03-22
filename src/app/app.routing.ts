@@ -14,8 +14,6 @@ import { ForgotPasswordComponent } from './auth-view/forgot-password/forgot-pass
 import { RestaurantPageComponent } from './client-view/restaurant-page/restaurant-page.component';
 import { PageNotFoundComponent } from './client-view/page-not-found/page-not-found.component';
 
-
-
 const routes: Routes = [
   { path: '', redirectTo: 'landing', pathMatch: 'full' },
   { path: 'home', component: ComponentsComponent },
