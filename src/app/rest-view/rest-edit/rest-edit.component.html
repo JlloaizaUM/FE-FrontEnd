@@ -20,11 +20,11 @@
                         <ngb-tab *ngFor="let category of page.categories" title="{{category.name}}">
                             <ng-template ngbTabContent class="">
                                 <div class="container d-flex justify-content-center">
-                                    <button (click)="create()" class="btn mb-4"><i class="bi bi-plus-circle"></i> Agregar plato</button>
+                                    <button (click)="openCreateModal()" class="btn mb-4"><i class="bi bi-plus-circle"></i> Agregar plato</button>
                                 </div>
                                 <div class="row justify-content-center">
                                     <div class="card mx-2" style="max-width:225px" *ngFor="let dish of category.dishes">
-                                        <a href="javascript:void(0)" (click)="openEditModal(dish)"
+                                        <a href="" onclick="return false;" (click)="openEditModal(dish)"
                                             class="stretched-link">
                                             <img class="card-img-top " src={{dish.url}} />
                                         </a>

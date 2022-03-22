@@ -3,8 +3,7 @@
         <div class="d-flex flex-row justify-content-center">
             <div class="input-group mb-3" *ngIf="nameEdit">
                 <input style="text-align:center;" type="text" class="form-control" placeholder="Nombre"
-                    aria-label="Nombre" aria-describedby="basic-addon1" value={{editableDish.name}}
-                    [(ngModel)]="editableDish.name">
+                    aria-label="Nombre" aria-describedby="basic-addon1" value={{nDish.name}} [(ngModel)]="nDish.name">
                 <a href="" onclick="return false;" (click)="onNameEdit()">
                     <div class="input-group-append">
                         <button class="btn btn-outline-success" type="button">
@@ -15,7 +14,7 @@
             </div>
 
             <div class="d-flex flex-row" *ngIf="!nameEdit">
-                <h5 class="modal-title text-center">{{editableDish.name}}</h5>
+                <h5 class="modal-title text-center">{{nDish.name}}</h5>
                 <a href="" onclick="return false;" (click)="onNameEdit()">
                     <div class="col-2">
                         <i class="bi bi-pencil text-dark"></i>
@@ -35,18 +34,22 @@
 
 
 </div>
-<img class="card-img-top" src={{editableDish.url}}>
-<a (click)="changeTxt()" class="btn btn-neutral"><i class="bi bi-file-earmark-plus"></i> Subir imagen</a>
-<p class="ml-2">Tamaño máximo: 2MB <br></p>
+
 
 <div class="modal-body px-2">
+    <img class="card-img-top" [src]=nDish.url>
+    <input type="file" style="display: none;" id="selectedFile" name="img" accept="image/png, image/jpeg"
+        (change)="selectFile($event)" #imgInput>
+    <a (click)="imgInput.click()" class="btn btn-neutral"><i class="bi bi-file-earmark-plus"></i> Subir imagen</a>
+    <p [ngClass]="{'ahashakeheartache': isSizeError, 'faded': !isSizeError}" class="ml-2">Tamaño máximo: 2MB <br></p>
+
     <p class="ml-2">Descripción:<br></p>
     <div class="ml-2 d-flex justify-content-left">
         <div class="container-fluid pl-1 pr-5">
             <div class="d-flex flex-row">
                 <div class="input-group mb-3" *ngIf="descEdit">
                     <input type="text" class="form-control" placeholder="Descripción" aria-label="Descripción"
-                        value={{editableDish.descripcion}} [(ngModel)]="editableDish.descripcion">
+                        value={{nDish.descripcion}} [(ngModel)]="nDish.descripcion">
                     <a href="" onclick="return false;" (click)="onDescEdit()">
                         <div class="input-group-append">
                             <button class="btn btn-outline-success" type="button">
@@ -59,7 +62,7 @@
 
             <div class="d-flex flex-row" *ngIf="!descEdit">
                 <span>
-                    <h5>{{editableDish.descripcion}}</h5>
+                    <h5>{{nDish.descripcion}}</h5>
                 </span>
                 <div class="col-2 d-flex align-content-center flex-wrap">
                     <a href="" onclick="return false;" (click)="onDescEdit()">
@@ -78,7 +81,7 @@
                         <span class="input-group-text" id="basic-addon1">$</span>
                     </div>
                     <input type="number" class="form-control" placeholder="Precio" aria-label="Precio"
-                        aria-describedby="basic-addon1" value={{editableDish.precio}} [(ngModel)]="editableDish.precio">
+                        aria-describedby="basic-addon1" value={{nDish.precio}} [(ngModel)]="nDish.precio">
                     <a href="" onclick="return false;" (click)="onPriceEdit()">
                         <div class="input-group-append">
                             <button class="btn btn-outline-success" type="button">
@@ -88,13 +91,13 @@
                     </a>
                 </div>
             </div>
-            
-            
+
+
 
             <div class="d-flex flex-row" *ngIf="!priceEdit">
                 <h5>$</h5>
                 <span>
-                    <h5>{{editableDish.precio}}</h5>
+                    <h5>{{nDish.precio}}</h5>
                 </span>
                 <div class="col-2 d-flex align-content-center flex-wrap">
                     <a href="" onclick="return false;" (click)="onPriceEdit()">

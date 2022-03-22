@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+</head>
+
+<body>
+    <div class="page-header" style="background-image: url('./assets/img/warren-blake.jpg');">
+        <div class="container  ">
+            <div class="">
+
+                <form class="form-app">
+                    <div class=" margin-top  ">
+
+                        <div class="  card-register mr-auto ml-auto card-panel " style="background-color: white">
+                            <h3 style=" text-align: center; color: black;">Ingresa tus datos</h3>
+
+                            <label style="color: black;">Ingresa la imagen del restaurtante</label>
+                            <img src="assets/img/torigallo.jpeg" class="img-rounded img-responsive "
+                                alt="Rounded Image">
+                                
+                                <input type="file" style="display: none;" id="selectorFile" name="img" accept="image/jpg, image/png, image/jpeg" >
+                                <a (click)="imgInput.clic()" class="btn btn-neutral"><i class="bi bi-file-earmark-plus"></i>Subir imagen </a>
+
+                            <div class="card card-plain " [ngClass]="{'input-group-focus':focus===true}">
+                                <label>Nombre:</label>
+                                <input type="text" class="form-control" placeholder="Nombre restaurante"
+                                    (focus)="focus=true" (blur)="focus=false" [(ngModel)]="name"
+                                    [ngModelOptions]="{standalone: true}" style="border-color: #DDDDDD;" required />
+                                <br>
+                                <label>Descripción del restaurante:</label>
+                                <textarea class="form-control" rows="3"
+                                    placeholder="¡Describe tú restaurante!"></textarea>
+
+                                <br>
+                                <label>Url imagen</label>
+                                <input type="text" class="form-control" placeholder="url" (focus)="focus=true"
+                                    (blur)="focus=false" [(ngModel)]="route" [ngModelOptions]="{standalone: true}"
+                                    style="border-color: #DDDDDD;" required />
+
+                                <button class="btn btn-danger " type="submit" (click)="Ingresar()"> Ingresar
+                                    datos</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                
+            </div>
+
+            <div class="d-flex justify-content-center" style="  padding-top:100px; margin-top: -30px; background-image:url('./assets/img/kitchen-cloth-on-wood-table.jpg') ; background-size: 100%; background-color: transparent;">
+                <p  class="text-align-center  " style="color: black;"> Contáctanos al 0180007893 o vísitanos en nuestra
+                    sede principal en
+                    Manizales en la calle 3
+                    #12-32.</p>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

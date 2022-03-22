@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
@@ -16,6 +16,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { RestViewModule } from './rest-view/rest-view.module';
 import { AuthViewModule } from './auth-view/auth-view.module';
 import { ReactiveFormsModule } from '@angular/forms';
+
+import { environment } from '../environments/environment';
+
+import { AngularFireModule} from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -35,7 +41,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     ClientViewModule,
     RestViewModule,
     AuthViewModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    
   ],
   bootstrap: [AppComponent]
 })

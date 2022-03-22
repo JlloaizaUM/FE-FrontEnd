@@ -13,6 +13,8 @@ import { RegisterClientComponent } from './auth-view/register-client/register-cl
 import { ForgotPasswordComponent } from './auth-view/forgot-password/forgot-password.component';
 import { RestaurantPageComponent } from './client-view/restaurant-page/restaurant-page.component';
 import { PageNotFoundComponent } from './client-view/page-not-found/page-not-found.component';
+import { PanelConfigComponent } from './rest-view/panel-config/panel-config.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'landing', pathMatch: 'full' },
@@ -25,7 +27,9 @@ const routes: Routes = [
   { path: 'restaurant/:restaurantPath/edit', component: RestEditComponent },
   { path: 'register-client', component: RegisterClientComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'panel-config', component: PanelConfigComponent},
   { path: '**', component: PageNotFoundComponent },
+  
 
 ];
 
