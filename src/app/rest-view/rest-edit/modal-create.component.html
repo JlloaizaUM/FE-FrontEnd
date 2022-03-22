@@ -27,12 +27,7 @@
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-
     </div>
-
-
-
-
 </div>
 
 
@@ -42,7 +37,6 @@
         (change)="selectFile($event)" #imgInput>
     <a (click)="imgInput.click()" class="btn btn-neutral"><i class="bi bi-file-earmark-plus"></i> Subir imagen</a>
     <p [ngClass]="{'ahashakeheartache': isSizeError, 'faded': !isSizeError}" class="ml-2">Tamaño máximo: 2MB <br></p>
-
     <p class="ml-2">Descripción:<br></p>
     <div class="ml-2 d-flex justify-content-left">
         <div class="container-fluid pl-1 pr-5">
