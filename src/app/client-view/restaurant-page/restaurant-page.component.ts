@@ -1,8 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-
-import { RestaurantPage } from '../model/restaurant-page';
 import { PageApiService } from '../services/get/page-api.service';
 
 
@@ -12,11 +10,10 @@ import { PageApiService } from '../services/get/page-api.service';
   styleUrls: ['./restaurant-page.component.css']
 })
 export class NgbdModalContent{
-  @Input() dish;
+  @Input() dish:any;
 
   constructor(public activeModal: NgbActiveModal) { }
   
-
 }
 
 @Component({
@@ -37,10 +34,9 @@ export class RestaurantPageComponent implements OnInit {
   async ngOnInit() {
     const routeParams = this.route.snapshot.paramMap;
     let path = routeParams.get('restaurantPath');
-    this.apiservice.getRestaurantData(path).subscribe((restaurant) => {
+    this.apiservice.getRestaurantData(path).subscribe(async (restaurant) => {
       this.page = restaurant;
     });
-    console.log(this.page);
 
   }
 
@@ -48,7 +44,7 @@ export class RestaurantPageComponent implements OnInit {
     return false;
   }
 
-  openModal(dish) {
+  openModal(dish:any) {
     const modalRef = this.modalService.open(NgbdModalContent);
     modalRef.componentInstance.dish = dish;
   }

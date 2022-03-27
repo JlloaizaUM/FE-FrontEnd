@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
@@ -13,8 +13,15 @@ import { ComponentsModule } from './components/components.module';
 import { ExamplesModule } from './examples/examples.module';
 import { ClientViewModule } from './client-view/client-view.module';
 import { HttpClientModule } from '@angular/common/http';
-import { RestaurantPageComponent } from './client-view/restaurant-page/restaurant-page.component';
 import { RestViewModule } from './rest-view/rest-view.module';
+import { AuthViewModule } from './auth-view/auth-view.module';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { environment } from '../environments/environment';
+
+import { AngularFireModule} from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,9 +37,14 @@ import { RestViewModule } from './rest-view/rest-view.module';
     ComponentsModule,
     ExamplesModule,
     AppRoutingModule,
-    ClientViewModule,
     HttpClientModule,
-    RestViewModule
+    ClientViewModule,
+    RestViewModule,
+    AuthViewModule,
+    ReactiveFormsModule,
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    
   ],
   bootstrap: [AppComponent]
 })

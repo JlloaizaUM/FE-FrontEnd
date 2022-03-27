@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="wrapper" *ngIf="page">
     <div class="page-header page-header-xs" data-parallax="true"
         style="background-image: url('{{page.restaurant.img_banner}}');">
         <div class="filter"></div>
@@ -12,25 +12,41 @@
                 <h1 class="title mt-2">{{page.restaurant.name}}<br /></h1>
             </div>
             <br />
-            <div *ngIf="page" class="d-flex justify-content-center">
-                <button type="button" class="btn btn-outline-default btn-round mb-5"><i
-                        class="nc-icon nc-settings-gear-65"></i> Editar platos </button>
+            <div class="d-flex justify-content-center">
+                <button (click)="openNewCat()" class="btn mb-4"><i
+                        class="bi bi-plus-circle"></i> Agregar categoria</button>
             </div>
             <div class="row d-flex justify-content-center">
                 <div class="col">
-                    <ngb-tabset [justify]="'center'">
-                        <ngb-tab *ngFor="let category of page.categories" title="{{category.name}}">
-                            <ng-template ngbTabContent>
+                    <ngb-tabset [justify]="'center'" (tabChange)="onTabChange($event)" [activeId]="selectedTab+''">
+                        <ngb-tab *ngFor="let category of page.categories; let i = index" title="{{category.name}}"
+                            id="{{i}}">
+                            <ng-template ngbTabContent class="">
+                                <div class="container d-flex justify-content-center">
+                                    <button (click)="openCreateModal()" class="btn mb-4"><i
+                                            class="bi bi-plus-circle"></i> Agregar plato</button>
+                                </div>
                                 <div class="row justify-content-center">
                                     <div class="card mx-2" style="max-width:225px" *ngFor="let dish of category.dishes">
-                                        <a href="javascript:void(0)" (click)="openModal(dish)" class=" stretched-link ">
-                                            <img class="card-img-top " src={{dish.url}} />
+                                        <a href="" onclick="return false;" (click)="openEditModal(dish)">
+                                            <img class="card-img-top"  src={{dish.url}}/>
                                         </a>
-                                        <div class="card-body">
+                                        <div class="card-body" style="transform: rotate(0);">
+                                            <a href="" onclick="return false;" (click)="openEditModal(dish)"
+                                                class="stretched-link"></a>
                                             <p class="card-title">{{dish.name}}</p>
                                         </div>
-                                        <div class="card-footer ">
-                                            <p>${{dish.precio}}</p>
+
+                                        <div class="card-footer" style="position: relative;">
+                                            <div class="d-flex">
+                                                <div class="p-2 align-self-center">
+                                                    <p>${{dish.precio}}</p>
+                                                </div>
+                                                <div class="ml-auto p-2">
+                                                    <button (click)="clickMethod(dish)" class="btn btn-outline-danger" style="padding:0.5em 1em" type="button">
+                                                        <i class="bi bi-trash3-fill"></i></button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -40,9 +56,7 @@
                     </ngb-tabset>
                     <br><br>
                     <div class="d-flex justify-content-center">
-                        <p class="text-align-center">Contáctanos al 0180007893 o vísitanos en nuestra sede principal en
-                            Manizales en la calle 3
-                            #12-32.</p>
+                        <p class="text-align-center">{{page.restaurant.footer_info}}</p>
                     </div>
 
                 </div>

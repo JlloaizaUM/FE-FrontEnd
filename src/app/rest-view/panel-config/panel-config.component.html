@@ -1,0 +1,79 @@
+<div class="wrapper">
+  <div class="page-header" style="
+    background-image: url('./assets/img/warren-blake.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;">
+    <div class="filter"></div>
+    <div class="container">
+      <div class="d-flex justify-content-center">
+        <div class="card card-register" style=" width: max-content; background-color: white; margin-top: 70px">
+          <h3 class="title" class="text-center text-danger">Ingresa tus datos</h3>
+          <form class="register-form">
+            <label style="color: black;">¡Ingresa el logo o avatar de tu restaurante!</label>
+            <div class="avatar mx-auto">
+              <img [src]="img_url || page.img_avatar"
+                class=" d-block mx-auto img-circle img-no-padding img-responsive shadowed" style="max-width: 80%;"
+                alt="Rounded Image">
+            </div>
+
+            <input type="file" style="display: none;" id="selectedFile" name="img" accept="image/png, image/jpeg"
+              (change)="selectFile($event)" #imgInput>
+            <div class="d-flex">
+              <a (click)="imgInput.click()" class="btn btn-neutral px-1"><i class="bi bi-file-earmark-plus"></i> Subir
+                imagen</a>
+              <a *ngIf="img_url" (click)="img_restablish()" class="btn btn-neutral ml-auto px-1">
+                Restablecer
+              </a>
+            </div>
+            <br>
+            <label style="color: black;">Nombre:</label>
+            <input type="text" class="form-control" placeholder="¿Cómo te llamas?" (focus)="focus=true"
+              (blur)="focus=false" [(ngModel)]="this.page.name" value="{{this.page.name}}" name="name"
+              style="border-color: #DDDDDD;" required />
+
+            <label style="color: black;">Descripción del restaurante:</label>
+            <textarea style="border-color:#DDDDDD" class="form-control" rows="2" placeholder="¡Describe tu restaurante!"
+              [(ngModel)]="this.page.description" value="{{this.page.description}}" name="description"></textarea>
+
+            <label style="color: black;">URL de página:</label>
+            <div class="d-flex">
+              <div class="flex-shrink-1 align-self-center">
+                <p class="text-dark mr-2">/</p>
+              </div>
+              <div class="flex-fill">
+                <input type="text" class="form-control" placeholder="¡Este es tu identificador único!"
+                  (focus)="focus=true" (blur)="focus=false" [(ngModel)]="this.page.user_url" name="user_url"
+                  style="border-color: #DDDDDD;" required />
+              </div>
+            </div>
+            <div class="d-flex">
+              <div class="align-self-center">
+                <p *ngIf="validated" class="my-auto font-weight-normal"
+                  [ngClass]="{'text-success': isValidUrl, 'text-danger': !isValidUrl}">
+                  {{isValidUrl?'URL única 🎉':'URL incorrecta ❌'}}</p>
+              </div>
+              <div class="ml-auto">
+                <a (click)="existsUrl()" class="btn btn-link btn-success mt-2">
+                  <i class="bi bi-check-lg"></i> Verificar
+                </a>
+              </div>
+
+            </div>
+
+            <label style="color: black;">Info a pie de página:</label>
+            <textarea style="border-color:#DDDDDD" class="form-control" rows="2" [(ngModel)]="this.page.footer_info"
+              value="{{this.page.footer_info}}"
+              placeholder="¡Aquí puedes escribir información adicional de tu restaurante!"
+              name="footer_info"></textarea>
+
+            <div class="d-flex justify-content-center">
+              <button type="submit" class="btn btn-outline-danger" (click)="regresar()">Cancelar</button>
+              <button type="submit" class="btn btn-success" (click)="update()">¡Actualizar!</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

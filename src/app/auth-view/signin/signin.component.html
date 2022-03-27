@@ -1,3 +1,4 @@
+<app-form></app-form> 
 <div class="wrapper">
   <div class="page-header" style="background-image: url('./assets/img/restaurante.jpg');">
     <div class="filter"></div>
@@ -23,7 +24,7 @@
                 </div>
 
                 <input type="text" class="form-control" placeholder="Email" (focus)="focus=true" (blur)="focus=false"
-                style="border-color: #DDDDDD;">
+                   style="border-color: #DDDDDD;" />
               </div>
 
               <label>Contraseña</label>
@@ -33,25 +34,26 @@
                     <i class="nc-icon nc-key-25"></i>
                   </span>
                 </div>
-                <input type="password" class="form-control"  placeholder="Password" (focus)="focus1=true"
-                  (blur)="focus1=false" style="border-color: #DDDDDD;">
+                <input type="password" class="form-control" placeholder="Password" (focus)="focus1=true"
+                  (blur)="focus1=false"
+                  style="border-color: #DDDDDD;" />
               </div>
-              <button class="btn btn-outline-danger btn-danger btn-block btn-round">Ingresar</button>
+              <button type="submit" class="btn btn-outline-danger btn-danger btn-block btn-round"
+                (click)="Ingresar()">Iniciar sesión</button>
             </form>
             <div class="text-center">
               <h4 class="description" style="margin-top:20px">ó</h4>
             </div>
-            <div class="register">
-              <button class="btn btn-block btn-danger btn-round" style="margin-top:20px">Regístrate</button>
+            <div class="Register">
+              <a href="/register-client" class="btn btn-outline-danger btn-round btn-danger btn-outline-danger btn-block">¡Registrate!</a>
+
             </div>
             <div class="forgot">
-              <a href="#" class="btn btn-link btn-danger">¿Olvidó su contraseña?</a>
+              <a href="/forgot-password" class="btn btn-link btn-danger">¿Olvidó su contraseña?</a>
             </div>
-
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>
