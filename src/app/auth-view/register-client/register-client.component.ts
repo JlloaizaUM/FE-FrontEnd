@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { RegisterApiService } from '../services/post/register-api.service';
+import { AuthService } from 'app/shared/services/auth.service';
 
-import { AngularFireAuth } from '@angular/fire/auth';
+
 import  auth  from 'firebase/app';
 
 @Component({
@@ -11,36 +11,14 @@ import  auth  from 'firebase/app';
 })
 export class RegisterClientComponent implements OnInit {
 
-  @Input() action:string;
-
-  test: Date = new Date();
-  focus;
-  focus1;
-  
-  usuario = {
-    email: '',
-    password: ''
-  }
-
-  Registrar() {
-
-    console.log(this.usuario);
-
-  }
-
-  
-
   constructor(
-    private apiService: RegisterApiService,
-    private auth: AngularFireAuth
+    public authService: AuthService
   ) { }
 
   ngOnInit(): void {
     
   }
-  LoginWithGoogle(){
-    this.auth.signInWithPopup(new auth.auth.GoogleAuthProvider);
-  }
+
  
 
 }

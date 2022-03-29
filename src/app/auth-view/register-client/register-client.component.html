@@ -3,58 +3,56 @@
 <div class="wrapper">
   <div class="page-header" style="background-image: url('./assets/img/restaurante2.jpg');">
     <div class="filter"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
-          <div class="card card-register" style="background-color: white; margin-top: 70px">
-            <h3 class="title" style="margin-bottom: 30px;">¡Registrate!</h3>
-            <div class="social-line text-center">
-            </div>
-
-            <form class="register-form" [FormGroup]="registerForm" (ngSubmit)="onRegister()" action="" >
-              <label>Correo</label>
-              <div class="input-group" [ngClass]="{'input-group-focus':focus===true}">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">
-                    <i class="nc-icon nc-email-85"></i>
-                  </span>
-                </div>
-
-                <input type="text" class="form-control" placeholder="Email" (focus)="focus=true" (blur)="focus=false"
-                  [(ngModel)]="email" [ngModelOptions]="{standalone: true}" style="border-color: #DDDDDD;" />
-              </div>
-
-              <label>Contraseña</label>
-              <div class="input-group" [ngClass]="{'input-group-focus':focus1===true}">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">
-                    <i class="nc-icon nc-key-25"></i>
-                  </span>
-                </div>
-                <input type="password" class="form-control" placeholder="Password" (focus)="focus1=true"
-                  (blur)="focus1=false" [(ngModel)]="password" [ngModelOptions]="{standalone: true}"
-                  style="border-color: #DDDDDD;" />
-              </div>
-
-            </form>
-            <button type="submit" class="btn btn-outline-danger btn-danger btn-block btn-round"
-                (click)="Registrarr()">Registrar por email</button>
-
-            <div class="register">
-              <button class="btn btn-block btn-danger btn-round" style="margin-top:20px"
-                (click)="LoginWithGoogle()">Regístrate con Google</button>
-            </div>
-
-
-            <div class="return">
-              <a href="signin" class="btn btn-link btn-danger btn-block btn-round">¿Volver al login?</a>
-              <br>
-              <a href="landing" class="btn btn-link btn-danger btn-block btn-round btn-outline">¿Volver a inicio?</a>
-
-            </div>
-
+    <div class="displayTable">
+      <div class="displayTableCell">
+        <div class="authBlock">
+          <h3>Regístrate</h3>
+          <div class="formGroup">
+            <input
+              type="email"
+              class="formControl"
+              placeholder="Correo Electrónico"
+              #userEmail
+              required
+            />
+          </div>
+          <div class="formGroup">
+            <input
+              type="password"
+              class="formControl"
+              placeholder="Contraseña"
+              #userPwd
+              required
+            />
+          </div>
+          <div class="formGroup">
+            <input
+              type="button"
+              class="btn btnPrimary"
+              value="Regístrate"
+              (click)="authService.SignUp(userEmail.value, userPwd.value)"
+            />
+          </div>
+          <div class="formGroup">
+            <span class="or"><span class="orInner">Ó</span></span>
+          </div>
+          <!-- Continue with Google -->
+          <div class="formGroup">
+            <button
+              type="button"
+              class="btn googleBtn"
+              (click)="authService.GoogleAuth()"
+            >
+              <i class="fab fa-google-plus-g"></i>
+              Continua con Google
+            </button>
           </div>
         </div>
+        <div class="redirectToLogin">
+          <span>¿Ya tienes una cuenta?<span class="redirect" routerLink="/signin">Inicia sesión</span></span>
+        </div>
+      </div>
+    </div>
 
       </div>
     </div>

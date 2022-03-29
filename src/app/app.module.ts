@@ -17,11 +17,15 @@ import { RestViewModule } from './rest-view/rest-view.module';
 import { AuthViewModule } from './auth-view/auth-view.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { environment } from '../environments/environment';
-
 import { AngularFireModule} from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { environment } from '../environments/environment';
+import { AuthService } from './shared/services/auth.service';
 import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -44,8 +48,14 @@ import { FormsModule } from '@angular/forms';
     ReactiveFormsModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule,
+    AngularFirestoreModule,
+    AngularFireDatabaseModule,
+    
+    
     
   ],
+  providers:[AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

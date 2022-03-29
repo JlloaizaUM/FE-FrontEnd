@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { AuthService } from "../../shared/services/auth.service";
 
 
 @Component({
@@ -9,31 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SigninComponent implements OnInit {
 
-  test: Date = new Date();
-  focus;
-  focus1;
-
-
-  usuario = {
-    email: '',
-    password: ''
-  }
-
-  Ingresar() {
-
-    console.log(this.usuario);
-
-  }
-
-  
-
-  constructor() { }
-
+  constructor(public authService: AuthService) { }
 
   ngOnInit(): void {
 
   }
-
-
 
 }

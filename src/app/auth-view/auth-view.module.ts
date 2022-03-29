@@ -10,6 +10,8 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
 import { FormComponent } from './component/form/form.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { VerifyEmailComponent } from './verify-email/verify-email.component';
 @NgModule({
   declarations: [
     SigninComponent,
@@ -17,6 +19,8 @@ import { FormComponent } from './component/form/form.component';
     ForgotPasswordComponent,
     ProfileComponent,
     FormComponent,
+    DashboardComponent,
+    VerifyEmailComponent,
     
   ],
   imports: [
